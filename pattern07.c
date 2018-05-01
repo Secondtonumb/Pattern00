@@ -9,7 +9,7 @@ typedef struct {
 } character_data;
 
 /*文字データを画面に出力する関数のプロトタイプ宣言*/
-void data_print(character_data char_data);
+void data_print(character_data *char_data);
 
 int main(int argc, char* argv[]){
   character_data char_data;
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
   }
 
   /* 画面に表示 */
-  data_print(char_data);
+  data_print(&char_data);
 
   /* 領域 char_data.data の解放処理 */
   for(i = 0; i < char_data.height; i++){
@@ -57,11 +57,11 @@ int main(int argc, char* argv[]){
 /*文字データ（ここでは行列）を画面に出力する関数*/
 /* 注意：関数をここで宣言する場合は，main関数の前にプロトタイプ宣言が必要です．*/
 /* プロトタイプ宣言をする場所はよく考えましょう． */
-void data_print(character_data data2print){
+void data_print(character_data *data2print){
   int i, j;
-  for(i = 0; i < data2print.height; i++){
-	for(j = 0; j < data2print.width; j++){
-	  printf("%d ", data2print.data[i][j]);
+  for(i = 0; i < data2print->height; i++){
+	for(j = 0; j < data2print->width; j++){
+	  printf("%d ", data2print->data[i][j]);
 	}
 	printf("\n");
   }
