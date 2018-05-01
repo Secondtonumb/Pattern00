@@ -15,12 +15,11 @@ int main(int argc, char* argv[]){
   }
   /* Save matrix data into a 1 dimention array */
   int data[raw * colmun];
-  int temp;
   
   for(i = 2; i < raw * colmun + 2; i++ ){
-     fscanf(fp,"%d",&temp);
-     data[i - 2] = temp;
+     fscanf(fp,"%d",&data[i - 2]);	
   }
+  
   /* Ask memory for 2 dimention array */
   matrix = malloc(colmun * sizeof(int*));
     
