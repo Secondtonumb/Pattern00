@@ -21,13 +21,6 @@ int main(int argc, char* argv[]){
   for(i = 0; i < 1; i++){
     fscanf(fp,"%d %d",&char_data.width, &char_data.height);
   }
-
-  int temp_data[char_data.width * char_data.height];
-  
-
-  for(i = 2; i < char_data.width * char_data.height + 2;  i++){
-    fscanf(fp,"%d", &temp_data[i - 2]);
-  }
   
   /* 領域 char_data.data の確保処理 */
   char_data.data = malloc(char_data.height * sizeof(int*));
@@ -36,10 +29,8 @@ int main(int argc, char* argv[]){
     char_data.data[i] = malloc(char_data.width * sizeof(int));
   }
   
-  for(i = 0; i < char_data.height; i++){
-    for(j = 0; j < char_data.width; j++){
-      char_data.data[i][j] = temp_data[i * char_data.width + j];
-    }
+  for(i = 2; i < char_data.width * char_data.height + 2; i++){
+    fscanf(fp,"%d",&char_data.data[(i - 2) / char_data.width][(i - 2) % char_data.width]);
   }
 
   /* 画面に表示 */
