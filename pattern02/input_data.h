@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+
 #define DATA_NUM 15
 
 typedef struct {
@@ -8,39 +10,22 @@ typedef struct {
   int height; /*Height of Data Matrix*/
 } character_data;
 
-/* Declarations  */
-void data_print(character_data *char_data);
-void data_malloc(character_data *char_data);
-void data_free(character_data *char_data);
+typedef struct node {
+  struct node *next;
+  character_data ptn;
+}*cluster,ptn_node;
 
-character_data char_data;
-
-character_data input(FILE *data_file){
+void input(character_data *p,FILE *df){
   int i;
-   
-  /* Get Width and Height from File and Save into the Struct */
-  fscanf(data_file,"%d %d",&char_data.width, &char_data.height);
-  
-  /* Allocate memory block */  
-  data_malloc(&char_data);
-    
-  /* As the first two data is Width and Height, Start from the Second Element */
-  /* (i - 2) / width will return current Raw   */
-  /* (i - 2) % width will return current Colmun */
-  for(i = 2; i < char_data.width * char_data.height + 2; i++){
-    fscanf(data_file,"%d",
-	   &char_data.data[(i - 2) / char_data.width][(i - 2) % char_data.width]);
-  }
-  /* Print result */
-  data_print(&char_data);
+  for(i = 2; i < p->width * p->height + 2; i++){
+    fscanf(df,"%d",
+	   &p->data[(i - 2) / p->width][(i - 2) % p->width]);
+  }  
+}
 
-  /* Free memory */
-  data_free(&char_data);
-
-  /* Closes the file associated with the stream and disassociates it */
-  fclose(data_file);
-
-  return char_data; 
+/* Get Width and Height from File and Save into the Struct */
+void get_size(character_data *p, FILE *ptr){
+  fscanf(ptr,"%d %d",&p->width, &p->height);
 }
 
 /* Print result in a matrix format */
@@ -74,3 +59,24 @@ void data_free(character_data *q){
   }
   free(q->data);
 }
+
+void add(character_data *p, character_data *q){
+  int i, j;
+  for(i = 0; i < p->height; i++){
+    for(j = 0; j < p->width; j++){
+      p->data[i][j] += q->data[i][j];
+    }
+  }
+}
+
+float get_distence(character_data *p, character_data *q){
+  int i, j;
+  float dis = 0;
+  for(i = 0; i < p->height; i++){
+    for(j = 0; j < p->width; j++){
+      dis += abs( p->data[i][j] -  5 * q->data[i][j]); 
+    }
+  }
+  return dis;
+}
+  
