@@ -13,40 +13,36 @@ void data_print(character_data *char_data);
 void data_malloc(character_data *char_data);
 void data_free(character_data *char_data);
 
-int main(int arfc,char* argv[]){
-  int m;
-  
-  char *listfile = argv[1];
-  FILE *files = fopen(listfile, "r"); //ファイル名保存ファイルを開く
-  char fileName[256];
+character_data char_data;
+
+character_data *input(FILE *data_file){
   int i;
-  character_data char_data;
+   
+  /* Get Width and Height from File and Save into the Struct */
+  fscanf(data_file,"%d %d",&char_data.width, &char_data.height);
   
-  for(m = 0; m < DATA_NUM; m++){
-    fscanf(files, "%s", fileName); 
-    printf("%s\n",fileName);
-    FILE *data_file = fopen(fileName, "r");
-    /* Get Width and Height from File and Save into the Struct */
-    fscanf(data_file,"%d %d",&char_data.width, &char_data.height);
-  
-    /* Allocate memory block */  
+  /* Allocate memory block */  
     data_malloc(&char_data);
     
-    /* As the first two data is Width and Height, Start from the Second Element */
-    /* (i - 2) / width will return current Raw   */
-    /* (i - 2) % width will return current Colmun */
-    for(i = 2; i < char_data.width * char_data.height + 2; i++){
-      fscanf(data_file,"%d",&char_data.data[(i - 2) / char_data.width][(i - 2) % char_data.width]);
-    }
-    /* Print result */
-    data_print(&char_data);
+  /* As the first two data is Width and Height, Start from the Second Element */
+  /* (i - 2) / width will return current Raw   */
+  /* (i - 2) % width will return current Colmun */
+  for(i = 2; i < char_data.width * char_data.height + 2; i++){
+    fscanf(data_file,"%d",
+	   &char_data.data[(i - 2) / char_data.width][(i - 2) % char_data.width]);
+  }
+  /* Print result */
 
-    /* Free memory */
-    data_free(&char_data);
+  //data_print(&char_data);
 
-    /* Closes the file associated with the stream and disassociates it */
-    fclose(data_file);
-  }  
+  /* Free memory */
+
+  //data_free(&char_data);
+
+  /* Closes the file associated with the stream and disassociates it */
+  fclose(data_file);
+
+  return &char_data; 
 }
 
 /* Print result in a matrix format */
@@ -80,3 +76,4 @@ void data_free(character_data *q){
   }
   free(q->data);
 }
+
