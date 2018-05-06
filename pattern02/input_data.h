@@ -8,12 +8,8 @@ typedef struct {
   int **data; /*Character Datas*/
   int width; /*Width of Data matrix*/
   int height; /*Height of Data Matrix*/
+  int pattern;
 } character_data;
-
-typedef struct node {
-  struct node *next;
-  character_data ptn;
-}*cluster,ptn_node;
 
 void input(character_data *p,FILE *df){
   int i;
@@ -24,7 +20,7 @@ void input(character_data *p,FILE *df){
 }
 
 /* Get Width and Height from File and Save into the Struct */
-void get_size(character_data *p, FILE *ptr){
+void get_feature(character_data *p, FILE *ptr){
   fscanf(ptr,"%d %d",&p->width, &p->height);
 }
 
@@ -69,14 +65,22 @@ void add(character_data *p, character_data *q){
   }
 }
 
-float get_distence(character_data *p, character_data *q){
+int get_distence(character_data *p, character_data *q){
   int i, j;
-  float dis = 0;
+  int dis = 0;
   for(i = 0; i < p->height; i++){
     for(j = 0; j < p->width; j++){
-      dis += abs( p->data[i][j] -  5 * q->data[i][j]); 
+      dis += abs( p->data[i][j] -  q->data[i][j]); 
     }
   }
   return dis;
 }
   
+void enlarge(character_data *p, int power){
+ int i, j;
+  for(i = 0; i < p->height; i++){
+    for(j = 0; j < p->width; j++){
+      p->data[i][j] = p->data[i][j] * power;
+    }
+  }
+}

@@ -14,4 +14,10 @@ int learning_ptn_num(FILE *p){
   return line_num;
 }
 
+int get_pattern_type(char *str){
+  int i;
+  i = atoi(&str[21]);
+  return i;
+}
+
 #endif

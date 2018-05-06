@@ -113,7 +113,6 @@ int main(int argc,char* argv[]){
     nearest_patterns[k] = char_data[array[m].index].pattern;
     printf("Recognition Result of PATTERN by K-NearestNeighbor Method  == %d\n", nearest_patterns[k]);
   }
-
   
   /* 原型法 */
   int length[CLUSTER_NUM];
