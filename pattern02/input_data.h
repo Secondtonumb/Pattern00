@@ -56,6 +56,7 @@ void data_free(character_data *q){
   free(q->data);
 }
 
+/* add q to p, result will be saved in p */
 void add(character_data *p, character_data *q){
   int i, j;
   for(i = 0; i < p->height; i++){
@@ -65,6 +66,7 @@ void add(character_data *p, character_data *q){
   }
 }
 
+/* get distence between p,and q , result saved as int */
 int get_distence(character_data *p, character_data *q){
   int i, j;
   int dis = 0;
@@ -75,7 +77,8 @@ int get_distence(character_data *p, character_data *q){
   }
   return dis;
 }
-  
+
+/* prototype is not average, just a sun */
 void enlarge(character_data *p, int power){
  int i, j;
   for(i = 0; i < p->height; i++){

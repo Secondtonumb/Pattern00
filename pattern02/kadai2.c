@@ -8,9 +8,10 @@
 #define CLUSTER_NUM 3
 #define ARR_LEN(array, length){ length =  sizeof(array) / sizeof(array[0]); }
 
+
 int main(int argc,char* argv[]){
   int m;
-
+  int CLUSTER_DIC[] =  {2, 7, 9};
   char *learning_listfile = argv[1];
   FILE *files = fopen(learning_listfile, "r"); 
   
@@ -20,7 +21,6 @@ int main(int argc,char* argv[]){
   char fileName[256];
   
   character_data char_data[LEARNING_NUM], proto[CLUSTER_NUM];
-
     
   /* 存储学习用模式数据 */
   for(m = 0; m < LEARNING_NUM; m++){
@@ -102,18 +102,27 @@ int main(int argc,char* argv[]){
   for(m = 0; m < LEARNING_NUM; m++){
     array[m].value = get_distence(&char_data[m],&rec_data);
     array[m].index = m;
-    //printf("%d %d\n",array[m].value,array[m].index);
+    printf("%d %d\n",array[m].value,array[m].index);
   }
 
   qsort(array, LEARNING_NUM, sizeof(struct node), comp_array);
-  
-  int nearest_patterns[k];
 
+  /* for(m = 0; m < LEARNING_NUM; m++){ */
+  /*   printf("%d %d\n",array[m].value,array[m].index); */
+  /* } */
+
+  int *nearest_patterns;
+  nearest_patterns = (int *)malloc(sizeof(int) * k);
   for(m = 0; m < k; m++){
-    nearest_patterns[k] = char_data[array[m].index].pattern;
-    printf("Recognition Result of PATTERN by K-NearestNeighbor Method  == %d\n", nearest_patterns[k]);
+    nearest_patterns[m] = char_data[array[m].index].pattern;
+    printf("Recognition Result of PATTERN by K-NearestNeighbor Method  == %d\n", nearest_patterns[m]);
   }
   
+  int result;
+  result = maxfreq_ele(nearest_patterns, k, CLUSTER_DIC, 3);
+  printf("Recognition Result == %d\n", result);
+
+
   /* 原型法 */
   int length[CLUSTER_NUM];
 
@@ -127,7 +136,7 @@ int main(int argc,char* argv[]){
   x = minimum(length,CLUSTER_NUM);
   rec_data.pattern = proto[x].pattern;
   printf("Recognition Result of PATTERN by Prototype Method == %d\n", rec_data.pattern);
-
+  
   for(m = 0; m < LEARNING_NUM; m++){
     data_free(&char_data[m]);
   }
