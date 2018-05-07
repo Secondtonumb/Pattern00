@@ -5,7 +5,7 @@
 #define DATA_NUM 15
 
 typedef struct {
-  int **data; /*Character Datas*/
+  double **data; /*Character Datas*/
   int width; /*Width of Data matrix*/
   int height; /*Height of Data Matrix*/
   int pattern;
@@ -14,7 +14,7 @@ typedef struct {
 void input(character_data *p,FILE *df){
   int i;
   for(i = 2; i < p->width * p->height + 2; i++){
-    fscanf(df,"%d",
+    fscanf(df,"%lf",
 	   &p->data[(i - 2) / p->width][(i - 2) % p->width]);
   }  
 }
@@ -29,7 +29,7 @@ void data_print(character_data *data2print){
   int i, j;
   for(i = 0; i < data2print->height; i++){
     for(j = 0; j < data2print->width; j++){
-      printf("%d ", data2print->data[i][j]);
+      printf("%f ", data2print->data[i][j]);
     }
     printf("\n");
   }
@@ -40,9 +40,9 @@ void data_print(character_data *data2print){
 /* p->data[i] save as the head of each One-dimensional array */
 void data_malloc(character_data *p){
   int i;
-  p->data = malloc(p->height * sizeof(int*));
+  p->data = malloc(p->height * sizeof(double*));
   for(i = 0; i < p->height; i++){
-    p->data[i] = malloc(p->width * sizeof(int));
+    p->data[i] = malloc(p->width * sizeof(double));
   }
 }
 
@@ -67,23 +67,22 @@ void add(character_data *p, character_data *q){
 }
 
 /* get distence between p,and q , result saved as int */
-int get_distence(character_data *p, character_data *q){
+double get_distence(character_data *p, character_data *q){
   int i, j;
-  int dis = 0;
+  double dis = 0;
   for(i = 0; i < p->height; i++){
     for(j = 0; j < p->width; j++){
-      dis += abs( p->data[i][j] -  q->data[i][j]); 
+      dis += fabs( p->data[i][j] -  q->data[i][j]); 
     }
   }
   return dis;
 }
-
-/* prototype is not average, just a sun */
-void enlarge(character_data *p, int power){
- int i, j;
+/* Divide p->data by int dal, result will still be saved in (double)p->data */
+void data_div(character_data *p, int dal){
+  int i, j;
   for(i = 0; i < p->height; i++){
     for(j = 0; j < p->width; j++){
-      p->data[i][j] = p->data[i][j] * power;
+      p->data[i][j] = p->data[i][j] / (float)dal;
     }
-  }
+  }      
 }

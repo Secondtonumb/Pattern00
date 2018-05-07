@@ -1,27 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* Struct for Function [qsort] */
 typedef struct node{
   int value;
   int index;
 }Node;
 
-int minimum(int *arr,int len){
-  int i,min = arr[0];
-  int min_element_number;
-  for(i = 1; i < len; i++){
-    if(min > arr[i]){
-      min = arr[i];
-      min_element_number = i;
-    }
-  }
-  return min_element_number;
-}
-
+/* Function for [qsort], adapted for struct node */
+/* Ascending Order */
 int comp_array(const void *a, const void *b){
   return(*(struct node *)a).value > (*(struct node *)b).value ? 1 : -1;
 }
 
+/* Get the element, which comes most frequently in a int array  */
+/* However,Reject when several values comes at the same frequency,
+which means [-1] when be returned. */
 int maxfreq_ele(int *arr, int len,int *type_dic, int type_len){
   int i;
   int m;
@@ -34,10 +28,6 @@ int maxfreq_ele(int *arr, int len,int *type_dic, int type_len){
     }
   }
   
-  for(m = 0; m < type_len; m++){
-    printf("pattern [%d] %d\n",type_dic[m],cnt[m]);
-  }
-  
   int max; max = cnt[0];
   int max_index; max_index = 0;
   for(m = 1; m < type_len; m++){
@@ -46,6 +36,7 @@ int maxfreq_ele(int *arr, int len,int *type_dic, int type_len){
       max_index = m;
     } 
   }
+  
   int reject_flag = 0;
   for(m = 0; m < type_len; m++){
     if(max == cnt[m]) reject_flag++;
@@ -53,4 +44,19 @@ int maxfreq_ele(int *arr, int len,int *type_dic, int type_len){
   if(reject_flag == 1)
   return type_dic[max_index];
   else return -1;
+}
+
+/* return the smallest value's index in double array */
+int min_ele_index(double *arr,int len){
+  int i;
+
+  double min = arr[0];
+  int min_element_number = 0;
+  for(i = 1; i < len; i++){
+    if(min > arr[i]){
+      min = arr[i];
+      min_element_number = i;
+    }
+  }
+  return min_element_number;
 }
