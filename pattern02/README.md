@@ -14,7 +14,7 @@
 
 実行方法：
 
-knn:k近傍法で未知パターンを評価する, <k>は引数として使える
+knn:k近傍法で未知パターンを評価する, "k"は引数として使える
 
 `./knn learning.list unrecognized_data/pattern2-5.dat <k>`
 
