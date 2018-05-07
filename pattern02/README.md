@@ -16,14 +16,14 @@
 
 実行方法：
 -
-#knn:k近傍法で未知パターンを評価する, "k"は引数として使える
+*knn:k近傍法で未知パターンを評価する, "k"は引数として使える
 
 `./knn learning.list unrecognized_data/pattern2-5.dat <k>`
 
-#make_proto:学習パターンから、プロトタイプを生成する。
+*make_proto:学習パターンから、プロトタイプを生成する。
 
 `./make_proto learning.list proto.list`
 
-#proto_nnm:プロトタイプを用いて、未知パターンを最近傍法で評価する。
+*proto_nnm:プロトタイプを用いて、未知パターンを最近傍法で評価する。
 
 `./proto_nnm proto.list unrecognized_data/pattern2-5.dat`
