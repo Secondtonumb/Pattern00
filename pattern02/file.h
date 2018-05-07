@@ -26,7 +26,7 @@ int get_pattern_type(char *str){
 /* Prototype Data should be saved in Directroy [.] */
 int get_pattern_type_1(char *str){
   int i;
-  i = atoi(&str[9]);
+  i = atoi(&str[24]);
   return i;
 }
 /* Save struct prototype variable into Standard File */
