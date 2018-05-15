@@ -1,0 +1,507 @@
+\documentclass[ % ドキュメントクラス
+  uplatex,%upLaTeXを使う
+  papersize%紙のサイズがデフォルトと違う場合、PDFにうまく伝える
+]{jsarticle}
+
+%% フォント関連
+\usepackage{authblk}
+\usepackage{diagbox}
+\usepackage{bm}
+\usepackage[T1]{fontenc} % フォントでT1を使うこと
+\usepackage{textcomp} % フォントでTS1を使うこと
+\usepackage[utf8]{inputenc} % ファイルがUTF8であること
+\usepackage{newpxtext,newpxmath} % ローマンと数式の字体をPalatinoに基づいた新PXフォントで
+\usepackage{zi4}%等幅フォントをInconsolataで
+\usepackage[multi,deluxe,jis2004]{otf}
+\usepackage[prefernoncjk]{pxcjkcat} % なるべく「半角」扱いで。
+\cjkcategory{sym18}{cjk} % sym18 (U+25A0 - U+25FF Geometric Shapes) を和文文字あつかい
+
+%% 図表など
+% 図の読みこみのために
+\usepackage[dvipdfmx, hiresbb]{graphicx, xcolor}
+
+\usepackage{multirow}
+\usepackage{multicol}
+
+\usepackage{booktabs} % 表の横罫線
+\usepackage{lscape}  % 表などを90度回転させる
+
+%% 囲み枠
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable} % ページをまたいで分割できるように
+
+% ソースコードをきれいに出力する
+\usepackage{listings}
+\lstset{ % 色々な設定
+    basicstyle=\ttfamily\scriptsize, % 基本的にタイプライター体にする
+    %numbers=left, % 左側に行番号を表示
+    %numberstyle=\small, % 行番号は小さめに
+    %numbersep=16pt, % 行番号をどれだけ離すか
+    % showspaces=true,% スペースを表示したければtrueにする 
+    xleftmargin=15pt, % 左側のマージン
+    frame=single, %ソースコードを囲むフレーム
+    framesep=10pt, %フレームとコードの間隔
+    backgroundcolor=\color[gray]{0.95}, % 背景色
+    breaklines=true, % 長い行は改行する
+    commentstyle=\color{red},
+    keywordstyle=\color{blue}
+}
+\renewcommand{\lstlistingname}{ソースコード}
+
+% misc
+\usepackage{okumacro} % 圏点などのため
+\usepackage{pxrubrica} % ルビをつける（okumacroのrubyは使わない）
+
+% hyperrefの設定
+\usepackage[dvipdfmx,%
+   bookmarks=true,%PDFにしおりをつける
+   bookmarksnumbered=true,%しおりに節番号などをつける
+   colorlinks=false,%リンクには色をつけない
+   hyperfootnotes=false,%脚注からのリンクを作らない
+   pdfborder={0 0 0},%枠なし
+   pdfpagemode=UseNone]{hyperref}
+   
+
+% PDFにしたときの文字化けを防ぐ
+\usepackage{pxjahyper}
+
+\title{パターン認識 -- 課題2}
+
+\author{\large GENG Haopeng 611710008 \\ \small Email:  \href{mailto:kevingenghaopeng@gmail.com}{kevingenghaopeng@gmail.com}}
+\affil{\small Toda Laboratory, Department of Intelligent Systems, Nagoya University}
+
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+今回の課題は、最近傍法、K近傍法、あるいはプロトタイプ法による文字認識である。
+学習パターンは$5\times5=25$次元の二値ベクトルであり、
+3種類の数字$(2,7,9)$で各5文字ずつを学習パターンとして、3種類の数字で各2文字ずつを認識する。
+さらに、3種の認識方法を理解した上、プログラムを作成し、実行結果による評価と考察を行う。
+
+そのほか、課題のソースコードが既に\href{https://github.com/Secondtonumb/pattern_recogn/tree/master/pattern02}{Github Repository}に掲載されるため、参照あるいは実行することは可能である。
+\end{abstract}
+
+
+\section{最近傍決定則による文字認識}
+\subsection{実験目的および理論}
+この課題は、最近傍法による文字認識を行う。具体的に言うと、上記の未知パターンを各学習パターンを比較し、Euclidean Distanceを求める。
+$$d(\bm{X,P}) = \sum_{i=0}^{n}\sum_{j=0}^{n}(x_{ij} - p_{ij})^{2}$$
+各距離の中で、一番近い学習パターンの種類を未知パターンの識別結果とする。
+
+ただし、今回のパターンは全て二値画像であるため、距離を計算する時$(1-0)^{2} = 1$になる。したがって、Euclidean 距離を差の絶対値の和で表現するのは可能である。
+\subsection{プログラムの解説}
+\subsubsection{プログラムの流れ}
+\begin{enumerate}
+\small
+\item 学習パターン、未知パターンをファイルとして入力し、構造体として保存
+\item 各学習パターンと未知パターンの距離を計算し、ソートして一番小さい値と相応しいパターンをリターンする
+\item 戻り値は結果として認められる
+\end{enumerate}
+\subsubsection{プログラムの工夫した部分}
+K近傍法に参照
+\subsection{プログラム実行例}
+
+pattern2-5.datを例として、以下のように出力される。
+
+\begin{lstlisting}[language=bash]
+$./knn learning.list unrecog_data/pattern2-5.dat 1
+==> unrecog_data/pattern2-5.dat <==
+0 1 1 1 1
+0 0 0 0 1
+0 0 0 1 0
+0 0 1 0 0
+1 1 1 1 1
+
+==> Valuation Module <==
+No. 1 nestest pattern [PATTERN NO.0]
+Distance : 2
+Pattern kind : 2
+
+==> Result <==
+Recognition Result == 2
+\end{lstlisting}
+
+出力結果について、
+
+\begin{itemize}
+\small
+\item[1] 未知パターンの二値表示
+\item[2] 一番近い学習パターン、距離、学習パターンのタイプ
+\item[3] 識別結果
+\end{itemize}
+
+の順番で表す。ゆえに、一番近い学習パターンはpattern2-0.datで、距離は2であり、識別結果はパターン２であることが分かった。
+
+\subsection{識別結果}
+最近傍法を用いて、３種類の数字で各2文字ずつを認識した結果は表1のよう表す。
+\begin{table}[h]\small
+\caption{最近傍法の識別結果}
+\label{tabel:最近傍法}
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\diagbox{未知パターン}{評価項目} & 最近傍学習パターン & 最近傍学習パターンとの距離 & 識別結果 \\
+\hline
+pattern2-5 & pattern2-0 & 2 & 2\\
+pattern2-6& pattern2-4& 2 & 2 \\
+pattern7-5 &pattern7-1 & 4 &7\\
+pattern7-6 & pattern7-0 & 5 & 7\\
+pattern9-5 &pattern9-2 & 3 & 9\\
+pattern9-6 &pattern2-2 & 5 & 2\\
+\hline
+\end{tabular}
+\end{table}
+
+
+よって、pattern9-6以外は正しく識別された結果が得られた。識別率は$5\div6 \approx 83.3\%$である。
+
+\section{K近傍決定則による文字認識}
+\subsection{実験目的および理論}
+この課題は、K近傍法による文字認識を行う。最近傍法と同じく、各学習パターン距離の中で、一番近いK個学習パターンを選び、その中に一番多く出ているパターンは識別結果である。
+ただし、最も多く出ているパターンが複数個存在する場合、識別ができなくなる。即ち、識別をrejectする事象が発生する。この場合は、プログラム解説の方で説明する。
+
+上記の最近傍法は、実質にはK=1の場合なので、K近傍法の特例とも言える。つまり、実際プログラムを作成した際、K近傍法にうまく対応するプログラムのみ作成すれば良い。
+
+\subsection{プログラムの解説}
+\subsubsection{プログラムの流れ}
+
+\begin{enumerate}
+\small
+\item 学習パターンをファイルから入力し、構造体配列として保存。
+\item 未知パターンを入力し保存。
+\item 各学習パターンと未知パターンの距離を計算し、ソートしてK個の最小値とそれに相応しいパターンをリターンする。
+\item 得られた複数個のパターンの組み合わせを評価し、出現する回数が最大かつ唯一のパターンを選ぶ，唯一でない場合はrejectする。
+\item 戻り値は結果として認められる。
+\end{enumerate}
+\subsubsection{プログラムに工夫した部分}
+
+\begin{enumerate}
+\small
+\item 学習パターンがランダムの場合、つまり数や種類が事前未知の場合、パターンファイル名からの参照が不便である。ゆえに、各パターンの構造体に新たな項目patternを添加した。それを用いて、未知パターンの種類判別する時、最近傍構造体からパターン種類を得ることが可能になる。
+ただし、今回の課題は、学習パターンを構造体配列で保存しているので、K近傍の距離だけでなく、ソートする前の番号（index）を獲得する必要がある。
+それに応じて、valueとindex両方の値を保存する構造体を利用し、valueの値をソートしてから、indexにソートする前の番号をそのまま表示する関数を利用した。
+\begin{lstlisting}[language=c,caption=value/index struct sort,]
+typedef struct node{
+  int value;
+  int index;
+}Node;
+
+/* Function for [qsort], adapted for struct node */
+/* Ascending Order */
+int comp_array(const void *a, const void *b){
+  return(*(struct node *)a).value > (*(struct node *)b).value ? 1 : -1;
+}
+.
+.
+.
+/* Save distences and their index in struct node(which is defined in sort.h) */
+  /* In order to get the smallest [k]th distances and their patterns  */
+  printf("\n==> Valuation Module <==\n");
+  struct node array[LEARNING_NUM];
+  for(m = 0; m < LEARNING_NUM; m++){
+    array[m].value = get_distence(&char_data[m],&rec_data);
+    array[m].index = m;
+  }
+
+  /* Use Function qsort to sort the distances  */
+  /* array.value will be sort in an ascending order */
+  /* Meanwhile, array.index will show elements' original index before sorting */
+  qsort(array, LEARNING_NUM, sizeof(struct node), comp_array);
+}
+
+\end{lstlisting}
+
+\item 結果評価の場合、最大頻度で出た要素を戻る関数、さらに、このような要素が複数個の場合、識別できなくなる結果を示す関数を利用した。
+
+\begin{lstlisting}[language=c,caption=evaluation part]
+/* Get the element, which comes most frequently in a int array  */
+/* However,Reject when several values comes at the same frequency,
+which means [-1] when be returned. */
+int maxfreq_ele(int *arr, int len,int *type_dic, int type_len){
+  int i;
+  int m;
+  int cnt[type_len];
+  for(m = 0; m < type_len; m++) cnt[m] = 0;
+
+  for(i = 0; i < len; i++){
+    for(m = 0; m < type_len; m++){
+      if(arr[i] == type_dic[m]) cnt[m]++;
+    }
+  }
+
+  int max; max = cnt[0];
+  int max_index; max_index = 0;
+  for(m = 1; m < type_len; m++){
+    if(max < cnt[m]){
+      max = cnt[m];
+      max_index = m;
+    }
+  }
+
+  int reject_flag = 0;
+  for(m = 0; m < type_len; m++){
+    if(max == cnt[m]) reject_flag++;
+  }
+  if(reject_flag == 1)
+  return type_dic[max_index];
+  else return -1;
+}
+
+\end{lstlisting}
+\end{enumerate}
+
+
+\subsection{プログラム実行例}
+
+
+pattern9-6.datを例として、以下のように出力される。
+
+\begin{lstlisting}[language=bash]
+$./knn learning.list unrecog_data/pattern9-6.dat 3
+==> unrecog_data/pattern9-6.dat <==
+0 0 1 1 1
+0 0 1 0 1
+0 0 1 1 1
+0 0 0 0 1
+1 1 1 1 1
+
+==> Valuation Module <==
+No. 1 nestest pattern [PATTERN NO.2]
+Distance : 5
+Pattern kind : 2
+No. 2 nestest pattern [PATTERN NO.14]
+Distance : 7
+Pattern kind : 9
+No. 3 nestest pattern [PATTERN NO.10]
+Distance : 8
+Pattern kind : 9
+
+==> Result <==
+Recognition Result == 9
+\end{lstlisting}
+
+出力結果について、
+
+\begin{itemize}
+\small
+\item[1] 未知パターンの二値表示。
+\item[2] 一番近いK個の学習パターン、距離、学習パターンのタイプ。
+\item[3] 識別結果。
+\end{itemize}
+の順番で表す。
+ゆえに、一番近いK個の学習パターンはそれぞれ：
+
+\begin{itemize}
+\small
+\item[1] pattern2-2
+\item[2] pattern9-4
+\item[3] pattern9-0
+\end{itemize}
+
+であり、識別結果は９であることが分かった。
+
+\subsection{識別結果}
+K近傍法を用いて、３種類の数字で各2文字ずつを認識した結果は表2のように表す。
+\begin{table}[h]\small
+\centering
+\caption{K近傍法の識別結果}
+\label{table}
+\begin{tabular}{|l|c|c|c|} 
+\hline  
+\diagbox{未知パターン}{評価項目} & 最近傍学習パターン & 最近傍学習パターンとの距離 & 識別結果 \\
+\hline
+\multirow{3}{*}{pattern2-5}  
+                & pattern2-0 & 2 &
+\multirow{3}{*}{2} \\ 
+                & pattern2-1 & 4 & \\ 
+                & pattern2-2 & 5 & \\ 
+\hline 
+\multirow{3}{*}{pattern2-6}  
+                & pattern2-4 & 2 &
+\multirow{3}{*}{2} \\ 
+                & pattern2-1 & 4 & \\ 
+                & pattern2-0 & 4 & \\ 
+\hline
+\multirow{3}{*}{pattern7-5}  
+                & pattern7-1 & 4 &
+\multirow{3}{*}{7} \\ 
+                & pattern7-3 & 5 & \\ 
+                & pattern7-2 & 5 & \\ 
+\hline
+\multirow{3}{*}{pattern7-6}  
+                & pattern7-0 & 5 &
+\multirow{3}{*}{7} \\ 
+                & pattern7-3 & 5 & \\ 
+                & pattern9-1 & 7 & \\
+\hline
+\multirow{3}{*}{pattern9-5}  
+                & pattern9-2 & 3 &
+\multirow{3}{*}{9} \\ 
+                & pattern9-4 & 7 & \\ 
+                & pattern2-4 & 8 & \\ 
+\hline
+\multirow{3}{*}{pattern9-6}  
+                & pattern2-2 & 5 &
+\multirow{3}{*}{9} \\ 
+                & pattern9-4 & 7 & \\ 
+                & pattern9-0 & 8 & \\    
+\hline                                                              
+\end{tabular} 
+\end{table}
+
+よって、$K = 3$の場合、すべての未知パターンが正しく識別された。
+
+Kをほかの値を取る場合を考察の方で記述する。
+
+\section{プロトタイプの最近傍決定則による文字認識}
+\subsection{実験目的および理論}
+この課題は、学習パターンからプロトタイプを生成する。そして、未知パターンを先用いた学習パターンではなく、各プロトタイプとの距離の計算し、一番近いプロトタイプは識別結果になる。
+ただし、プロトタイプの生成方法に関して、今回の課題は、重心(各種パターンの平均値)とする。
+
+$$\bm{P}=\frac{1}{n}\sum_{i=0}^{n}\bm{X_{i}}$$
+
+ただし、生成されたプロトタイプは平均値はほとんど小数になるが、未知パターンの各次元とプロトタイプの各次元の絶対値の和とその絶対値の平方の和の大小関係は同じであることが分かった。即ち、Euclidean 距離を計算しなくとも正しい結果が得られることである。
+
+下記の実行例と識別結果は、「距離」は各次元の差の絶対値の和として理解すれば良い。
+
+\subsection{プログラムの解説}
+\subsubsection{プログラムの流れ}
+
+\begin{enumerate}
+\small
+\item 学習パターンをファイルから入力し、各パターンに応じて、プロトタープを生成し保存。
+\item 未知パターンを入力し保存。
+\item 各プロトタイプと未知パターンの距離を計算し、ソートして距離の最小値とそれに相応しいパターンをリターンする。
+\item 戻り値は結果として認められる。
+\end{enumerate}
+
+\subsection{プログラム実行例}
+
+pattern7-5.datを例として、以下のように出力される。
+
+\begin{lstlisting}[language=bash]
+$../proto_nnm proto.list unrecog_data/pattern7-5.dat
+==> unrecog_data/pattern7-5.dat <==
+1 1 1 1 1
+1 1 0 0 1
+0 0 0 1 0
+0 0 1 0 0
+0 1 1 0 0
+
+==> Valuation module ==<
+Distence with Prototype [2] : 6.800000
+Distence with Prototype [7] : 5.600000
+Distence with Prototype [9] : 11.000000
+
+==> Result of PATTERN by Prototype Method <==
+Recognition Result == 7
+\end{lstlisting}
+
+出力結果について、
+
+\begin{itemize}
+\item[1] 未知パターンの二値表示
+\item[2] 各プロトタイプとの距離
+\item[3] 識別結果
+\end{itemize}
+の順番で表す。ゆえに、pattern7-5 の識別結果は７であることが分かった。
+
+\subsection{識別結果}
+プロトタイプを用いる最近傍法を用いて、３種類の数字で各2文字ずつを認識した結果は表3のように表す。
+\begin{table}[h]\small
+\caption{プロトタイプを用いる最近傍法の識別結果}
+\label{プロトタイプ}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\diagbox{未知パターン}{評価項目}} &
+\multicolumn{3}{c|}{各プロトタイプとの距離} &
+\multirow{2}{*}{識別結果(最近傍プロトタイプ)}\\
+\cline{2-4}
+  & Prototype2 & Prototype7 & Prototype9 &\\
+\hline
+pattern2-5 & 4.4 & 8.4 & 11.0 & prototype2 \\
+pattern2-5 & 5.2 & 9.6 & 11.8 & prototype2 \\
+pattern7-5 & 6.8 & 5.6 & 11.0 & prototype7 \\
+pattern7-6 & 12.4 & 9.2 & 10.2 & prototype7 \\
+pattern9-5 & 9.6 & 9.2 & 7.4 & prototype9 \\
+pattern9-6 & 8.8 & 12.0 & 10.2 & prototype2 \\
+\hline                                               
+\end{tabular} 
+\end{table}
+
+表3によって、pattern9-6以外の場合は正しく識別される。識別率は$5\div6 \approx 83.3\%$である。
+
+\section{考察}
+\subsection{プログラムの頑丈性}
+K近傍法に応じて、Kをいくつかの値を用い考察した結果は表4のように表す。
+\begin{table}[h]\small
+\centering
+\caption{K近傍法の考察結果}
+\label{table}
+\begin{tabular}{|c|ccccc|c|}
+\hline
+\diagbox{未知パターン}{評価結果}{Kの値} & $K=1$ & $K=3$ &$K=5$ &$K=7$ &$K=9$ & 正確率\\
+\hline
+pattern2-5 & ${\surd}$& ${\surd}$ &${\surd}$ & ${\surd}$&${\surd}$&$100\%$ \\
+pattern2-6 & ${\surd}$& ${\surd}$ &${\surd}$ & ${\surd}$ &${\surd}$&$100\%$ \\
+pattern7-5 & ${\surd}$& ${\surd}$ &${\surd}$ & Err(2) &${\surd}$&$80\%$ \\
+pattern7-5 & ${\surd}$& ${\surd}$ &Rej(7,9) & Rej(7,9) &Err(9)&$40\%$ \\
+pattern9-5 & ${\surd}$& ${\surd}$ & ${\surd}$ & ${\surd}$ &${\surd}$&$100\%$ \\
+pattern9-6 & Err(2)& ${\surd}$ & ${\surd}$ & Err(2) &Err(2)&$40\%$ \\
+\hline
+正確率& $83.3\%$ & $100\%$ &$83.3\%$ &$50\%$ & $67.7\%$ &$76.7\%$\\
+\hline
+\end{tabular}
+\end{table}
+
+上記の表4によると、以下のことが分かった。
+\begin{itemize}
+\item[1] $K=3$の時識別率が一番良い、$K=7$ の時識別率が一番悪い。
+\subitem(i)\small  必ずしも$K$が大きいほうが良い。$K$の選択法は評価結果にかなり影響を与える。
+\item[2] \normalsize 各未知パターンに応じて、pattern2-5, pattern2-6, pattern9-5の識別率は相当に良いが、pattern7-5とpattern9-6の識別率が不十分である。誤識別率の高いパターンにおいて:
+\subitem(i)\small  pattern7-5では、$K$近傍の中に7と9が出現率が一緒の場合が多くて、数字7か数字9か識別できなくなる。
+\subitem(ii)\small 一方、pattern9-6では、数字2と誤識別される場合が多い。いわゆる、数字2と相似である。
+
+\end{itemize}
+実際K近傍法を応用する時、K値を決め方の一つは、K-fold Cross Validation(K-分割交差検証)という方法がよく使われている\cite{K-fold Cross Validation}。
+\subsection{プログラムの互換性}
+パターンデータの保存方法に関して、以下の構造体の利用した。
+\begin{lstlisting}[language=c]
+typedef struct {
+  double **data; /*Character Datas (2 Demention Variable Length Array)*/
+  int width; /*Width of Data matrix*/
+  int height; /*Height of Data Matrix*/
+  int pattern;/*Pattern type*/
+} character_data;
+\end{lstlisting}
+
+構造体の中に、パターンである二値画像をデータの可変長配列、配列の横幅、縦幅、パターン種類で保存される。それぞれの要素を各学習ファイルから獲得できるような処理を行い、データ種類やデータ量が数多くなる時もう対応できるようになる。
+
+さらに、パターンが数字でなく文字の場合、[pattern]の変数型を変更すれば良い、他の種類のパターンも対応できるようになる。
+\subsection{プログラムの欠点}
+gprofコマンドを用いてプログラムの関数呼び出し回数を解析した結果。プログラムの時間複雑度は$O(n^{2})$数量級である。
+
+だが、今回の課題では、全ての学習データを一元構造体配列に格納するとこになったが、距離を計算した後どの学習パターンを値を得るなどの処理が重くなる。一つの提案として、全ての学習データを連結リストの構造で保存すれば、距離を参照し、相応しい学習パターンを得る処理がポインターで実現すれば、時間複雑度と後の拡張プログラム作業量も減らせると考えられる。
+
+\section{パターン認識の使用例}
+\subsection{音声認識の分野}
+人間が話す音声が機械に認識される一連の処理には、自然音声の音声学特徴を抽出し、音声モデルに応用されるのは一般的である。
+よく使われる特徴量は：
+\begin{itemize}
+\item[1] 線形予測係数
+\item[2] ケプストラム
+\item[3] MFCC(メル周波数ケプストラム係数)
+\end{itemize}
+である。
+これらの特徴量を利用し、実際の文字配列と対応する音声モデルが生成可能になる\cite{音声認識}。
+
+\begin{thebibliography}{9}
+    \bibitem{K-fold Cross Validation} Refaeilzadeh P, Tang L, Liu H. Cross-validation[M]//Encyclopedia of database systems. Springer US, 2009: 532-538.
+    \bibitem{音声認識}今井聖. (1995). 音声認識. 情報 電子入門シリーズ 16.
+\end{thebibliography}
+
+\end{document}

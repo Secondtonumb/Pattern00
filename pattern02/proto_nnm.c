@@ -82,7 +82,7 @@ int main(int argc,char* argv[]){
   /* x will be the smallest element's index  */
   x = min_ele_index(length,PROTO_NUM);
   rec_data.pattern = proto[x].pattern; 
-  printf("\n==> Recognition Result of PATTERN by Prototype Method <==\n==> %d <==\n", rec_data.pattern);
+  printf("\n==> Result of PATTERN by Prototype Method <==\nRecognition Result == %d \n", rec_data.pattern);
 
   /* Free Memory  */
  for(m = 0; m < CLUSTER_NUM; m++){

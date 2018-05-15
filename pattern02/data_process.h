@@ -29,7 +29,7 @@ void data_print(character_data *data2print){
   int i, j;
   for(i = 0; i < data2print->height; i++){
     for(j = 0; j < data2print->width; j++){
-      printf("%f ", data2print->data[i][j]);
+      printf("%.0f ", data2print->data[i][j]);
     }
     printf("\n");
   }
