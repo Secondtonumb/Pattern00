@@ -60,3 +60,5 @@ int min_ele_index(double *arr,int len){
   }
   return min_element_number;
 }
+
+

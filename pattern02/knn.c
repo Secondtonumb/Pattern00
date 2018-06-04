@@ -101,7 +101,7 @@ int main(int argc,char* argv[]){
   int *nearest_patterns;
   nearest_patterns = (int *)malloc(sizeof(int) * k);
   for(m = 0; m < k; m++){
-    nearest_patterns[m] = char_data[array[m].index].pattern;
+    nearest_patter[m] = char_data[array[m].index].pattern;
     printf("No. %d nestest pattern [PATTERN NO.%d]\nDistance : %d \nPattern kind : %d\n", m + 1,array[m].index, array[m].value,nearest_patterns[m]);
   }
 

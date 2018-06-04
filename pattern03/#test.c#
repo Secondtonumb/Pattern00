@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+#include "data.h"
+
+int main(int argc, char * argv[])
+{
+  int a = 3, b = 3;
+  double **w;
+  char *w_file_name = argv[1];
+  FILE *w_file = fopen(w_file_name,"r");
+
+  input_weight(w, a, b, w_file);
+  
+}
