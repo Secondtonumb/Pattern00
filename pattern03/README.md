@@ -2,7 +2,9 @@
 =
 コンパイラする方法：
 -
-例：`gcc -o pl pl.c`, `gcc -o pl_rec pl_rec.c`
+例：
+`gcc -o pl pl.c`
+`gcc -o pl_rec pl_rec.c`
 
 実行方法：
 -
@@ -33,6 +35,11 @@ random_init_weight.sh
 `mkdir test_data`
 
 テストデータを保存するディレクターを作る
+
 `./random_init_weight.sh`
 
-初期重み、修正重み、および識別結果がtest_dataに保存する
+初期重み、修正重みがtest_dataに保存される
+
+ソートされた識別結果が'recog_result'に保存される
+
+なお、修正のプロセスがmake_weight.logに保存される
