@@ -38,7 +38,7 @@ random_init_weight.sh
 
 テストデータを保存するディレクターを作る
 
-`./random_init_weight.sh`
+`./random_init_weight.sh 500`
 
 初期重み、修正重みがtest_dataに保存される
 
