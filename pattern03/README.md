@@ -11,11 +11,13 @@
 pl: pattern learning, 学習データと初期重みを利用して、重みベクトルを計算する
 
 `./pl learning_data.list init_weight.dat weight.dat [rho]`
+
 `./pl weather.list wea_init_weight.dat weather_weight.dat [rho]`
 
 pl_rec: pattern recognition, 重みベクトルを用いて、未知パターンを識別する
 
 `./pl_rec weight.dat unknown.dat`
+
 `./pl_rec weather_weight.dat unk_weather.dat`
 
 テスト集（初期重み）の作り方：
