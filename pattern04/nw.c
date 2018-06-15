@@ -1,42 +1,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
- 
-#include "evalution.h"
 
 #define Layer 2
 #define Dim 2
 #define Clu 2
 
-#define Arr_Len(array,len){len = (sizeof(array) / sizeof(array[0]));}
+#include "evalution.h"
+#include "data.h"
+#include "file.h"
 
 typedef struct{
   double *w; /*input weights(w0, w1, w2, w3)*/
-  //double *e;
   double e;
   double g;
-  double h; 
+  double h;
 } Neural;
+
+
+#define Arr_Len(array,len){len = (sizeof(array) / sizeof(array[0]));}
 
 
 void N_first_layer_malloc(Neural *N){
   N->w = malloc(Dim * sizeof(double));
-  //  N->e = malloc(Dim * sizeof(double));
 }
 
 void N_malloc(Neural *N){
   N->w = malloc(Clu * sizeof(double));
-  //N->e = malloc(Clu * sizeof(double));
 }
 
-/* void N_init_weight(Neural *N){ */
-/*   int k; */
-/*   int upper = 10, lower = -10; */
-/*   for(k = 0; k < Clu; k++){ */
-/*     N->w[k] = (rand() % (upper-lower + 1)) + lower; */
-/*     N->e[k] = 1; */
-/*   } */
-/* } */
+
+void N_init_weight(Neural *N){
+  int k;
+  int  upper = 10, lower = -10;
+  for(k = 0; k < Clu; k++){
+    N->w[k] = (rand() % (upper-lower + 1)) + lower;
+  }
+}
 
 void N_print_weight(Neural *N){
   int k;
@@ -69,68 +69,137 @@ double hid_layer_e(double *w_arr, double *e_arr, double ip){
   return res;
 }
 
-int main(){  
+int main(int argc, char *argv[]){
+  if(argc != 4){
+    printf("Usage: ./nw ptn.list bias.dat weight.list");
+    exit(1);
+  }
+  
   double rho;
   rho = 0.1;
   
-  Neural n_net[Layer][Clu];
   int i, j, k;
+
+  int m;
+
+  char *learning_listfile = argv[1];
+  char *bias_name = argv[2];
+  char *weight_listfile = argv[3];
+  
+  FILE *ptn_files = fopen(learning_listfile, "r");
+  FILE *bias_file = fopen(bias_name, "r");
+  FILE *weight_files = fopen(weight_listfile, "r");
+   
+  int LEARNING_NUM;
+  LEARNING_NUM = learning_ptn_num(ptn_files);
+
+  char ptn_name[256];
+  Pattern p_arr[LEARNING_NUM];
+  
+  for(m = 0; m < LEARNING_NUM; m++){
+    fscanf(ptn_files, "%s", ptn_name);
+
+    printf("==> %s <==\n",ptn_name);
+
+    FILE *data_file = fopen(ptn_name, "r");
+    
+    get_feature(&p_arr[m],data_file);
+
+    data_malloc(&p_arr[m]);
+
+    input_pattern(&p_arr[m],data_file);
+
+    data_print(&p_arr[m]);
+
+    p_arr[m].pclass = get_pattern_type(ptn_name);
+
+    printf("%d\n",p_arr[m].pclass);
+
+    // data_free(&p_arr[m]);
+
+    fclose(data_file);
+  }
+
+  fclose(ptn_files);
+  
+  Neural n_net[Layer][Clu];
+
+  char w_name[256];
+
+  int weight_num;
+  weight_num = learning_ptn_num(weight_files);
+
+  if(weight_num != Layer){
+    printf("weight file ERROR\n");
+    exit(1);
+  }
+
+  fscanf(weight_files, "%s", w_name);
+  printf("==> %s <==\n",w_name);
+  
+  FILE *w_data_file = fopen(w_name, "r");
 
   for(j = 0; j < Clu; j++){
     N_first_layer_malloc(&n_net[0][j]);
   }
+
+  for(j = 0; j < Clu; j++){
+    for(k = 0; k < Dim ; k++){
+      fscanf(w_data_file, "%lf", &n_net[0][j].w[k]);
+    }
+  }
   
   for(i = 1; i < Layer; i++){
+    fscanf(weight_files, "%s", w_name);
+    printf("==> %s <==\n",w_name);
+
+    FILE *w_data_file = fopen(w_name, "r");
     for(j = 0; j < Clu; j++){
       N_malloc(&n_net[i][j]);
     }
+    for(j = 0; j < Clu; j++){
+      for(k = 0; k < Clu ; k++){
+        fscanf(w_data_file, "%lf", &n_net[i][j].w[k]);
+      }
+    }
+  }  
+  
+  for(i = 0; i < Layer; i++){
+    printf(" Layer %d\n", i);
+    for(j = 0; j < Clu; j++){
+      N_print_weight(&n_net[i][j]);
+    }
+    printf("\n");
+  }
+  
+  /* Bias file Input */
+  int length;
+  double *b;
+
+  fscanf(bias_file, "%d", &length);
+  b = malloc(sizeof(double) * length);
+
+  for(m = 1; m < length + 1; m ++){
+    fscanf(bias_file,"%lf", &b[m - 1]);
   }
 
-  /* for(i = 0; i < Layer; i++){ */
-  /*   for(j = 0; j < Clu; j++){ */
-  /*     N_init_weight(&n_net[i][j]); */
-  /*   } */
-  /* } */
-
-  n_net[0][0].w[0] = 0.15;
-  n_net[0][0].w[1] = 0.20;
-  n_net[0][1].w[0] = 0.25;
-  n_net[0][1].w[1] = 0.30;
-  n_net[1][0].w[0] = 0.40;
-  n_net[1][0].w[1] = 0.45;
-  n_net[1][1].w[0] = 0.50;
-  n_net[1][1].w[1] = 0.55;
-  
-  /* for(i = 0; i < Layer; i++){ */
-  /*   printf(" Layer %d\n", i); */
-  /*   for(j = 0; j < Clu; j++){ */
-  /*     N_print_weight(&n_net[i][j]); */
-  /*   } */
-  /*   printf("\n"); */
-  /* } */
-
-  /* for(i = 0; i < Layer -1 ; i++){ */
-  /*   printf("Hidden Layer %d\n", i); */
-  /*   for(j = 0; j < Clu; j++){ */
-  /*     N_print_weight(&n_net[i][j]); */
-  /*   } */
-  /*   printf("\n"); */
-  /* } */
-  
-  double b[Layer] = {0.35, 0.60};
   double *L_input; //Layer input ,前一层h的集合
 
   L_input = malloc(sizeof(double) * Clu);
   
-  double init_p[] = {0.050, 0.100}; //初始向量，不包括扩张？
+  double *init_p= p_arr[0].data; 
   
-  double *output;//神经网络输出
-  output = malloc(sizeof(double) * Clu);
+  double *label;
 
-  double label[Clu] = {0.01, 0.99};//教师信号
+  label = malloc(sizeof(double) * Clu);
+
+  for(j = 0; j < Clu; j++){
+    label[j] = 0;
+  }
+  label[p_arr[0].pclass] = 1;
+
   int n;
-
-  
+  for(n = 0; n < 10000; n++){
   // forward
   for(j = 0; j < Clu; j++){
     n_net[0][j].g = multi(n_net[0][j].w, init_p, Clu) + b[0];
@@ -153,7 +222,7 @@ int main(){
       L_input[j] = n_net[i][j].h;
     }
   }
-  printf("Result of [%d] turns\n", n);
+
   for(j = 0; j < Clu; j++){
     printf("%f ", L_input[j]);
   }
@@ -206,13 +275,13 @@ int main(){
   }
 
   for(i = 0; i < Layer; i++){
-    printf(" Layer %d 's epsilon\n", i);
+    printf(" Layer %d 's weight\n", i);
     for(j = 0; j < Clu; j++){
       N_print_weight(&n_net[i][j]);
     }
     printf("\n");
   }
-    
+  }
 
   for(i = 0; i < Layer; i++){
     for(j = 0; j < Clu; j++){
