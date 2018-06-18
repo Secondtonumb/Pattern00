@@ -19,9 +19,12 @@ clu = len(data[0, :]) // args.ptn_num
 # for x in xrange(len(data[0, :])):
 #     plt.plot(xrange(len(data[:, 0])), data[:, x], label="column%d" % (x))
 for x in xrange(args.ptn_num):
-    plt.subplot(1,args.ptn_num,  x + 1)
+    plt.subplot(args.ptn_num // 2, 2, x + 1)
     for y in xrange(clu):
-        plt.title("pattern%d"%x)
-        plt.plot(xrange(len(data[:, 0])), data[:, x * clu + y], label="column%d cluster %d" %(x,y))
+        plt.title("pattern%d" % x)
+        plt.plot(xrange(len(data[:, 0])), data[:, x *
+                                               clu + y], label="column%d cluster %d" % (x, y))
+        plt.ylim(0, 1)
         plt.legend(fontsize=8)
+plt.tight_layout()
 plt.show()
