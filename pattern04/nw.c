@@ -83,7 +83,7 @@ int main(int argc, char *argv[]){
   }
   
   double rho;
-  rho = 0.01;
+  rho = 0.1;
   
   int i, j, k;
 
@@ -224,7 +224,7 @@ int main(int argc, char *argv[]){
   
   for(n = 0; n < cir; n++){
 
-    for(m = 5; m < 6; m++){
+    for(m = 0; m < ptn_num; m++){
 
       double *init_p = p_arr[m].data;
       //   printf("Use Pattern [%d]\n", m);
