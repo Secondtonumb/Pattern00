@@ -23,8 +23,8 @@ for x in xrange(args.ptn_num):
     for y in xrange(clu):
         plt.title("pattern%d" % x)
         plt.plot(xrange(len(data[:, 0])), data[:, x *
-                                               clu + y], label="column%d cluster %d" % (x, y))
+                                               clu + y], label="Pattern %d cluster %d" % (x, y))
         plt.ylim(0, 1)
-        plt.legend(fontsize=8)
+        plt.legend(fontsize=5)
 plt.tight_layout()
 plt.show()

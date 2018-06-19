@@ -4,7 +4,7 @@
 
 #define Layer 2
 #define Dim 2
-#define Clu 3
+#define Clu 4
 
 #include "evalution.h"
 #include "data.h"
@@ -28,7 +28,6 @@ void N_first_layer_malloc(Neural *N){
 void N_malloc(Neural *N){
   N->w = malloc(Clu * sizeof(double));
 }
-
 
 void N_init_weight(Neural *N){
   int k;
@@ -70,11 +69,24 @@ double op_layer_e(double teach, double op){
 
 double hid_layer_e(double *w_arr, double *e_arr, double ip){
   int i;
+  /* for(i = 0; i < Clu; i++){ */
+  /*   printf("%f  %f\n", w_arr[i], e_arr[i]); */
+  /* } */
   double temp, res;
   temp = multi(w_arr, e_arr, Clu);
   res = temp * ip * (1 - ip);
   return res;
 }
+
+double err(double *a, double *b){
+  double res = 0;
+  int i;
+  for(i = 0; i < Clu; i++){
+    res += pow((a[i] - b[i]), 2);
+  }
+  return res;
+}
+
 
 int main(int argc, char *argv[]){
   if(argc != 6){
@@ -83,7 +95,7 @@ int main(int argc, char *argv[]){
   }
   
   double rho;
-  rho = 0.1;
+  rho = 1;
   
   int i, j, k;
 
@@ -203,9 +215,9 @@ int main(int argc, char *argv[]){
     label[m] = malloc(sizeof(double) * Clu);
     //free
     for(j = 0; j < Clu; j++){
-      label[m][j] = 0;
+      label[m][j] = 0.01;
     }
-    label[m][p_arr[m].pclass] = 1;
+    label[m][p_arr[m].pclass] = 0.99;
   }
   
   /* for(m = 0 ; m < LEARNING_NUM; m++){ */
@@ -223,11 +235,10 @@ int main(int argc, char *argv[]){
 
   
   for(n = 0; n < cir; n++){
-
     for(m = 0; m < ptn_num; m++){
 
       double *init_p = p_arr[m].data;
-      //   printf("Use Pattern [%d]\n", m);
+      //printf("Use Pattern [%d]\n", m);
 
       // forward
       for(j = 0; j < Clu; j++){
@@ -255,67 +266,60 @@ int main(int argc, char *argv[]){
       for(j = 0; j < Clu; j++){
 	printf("%f,", L_input[j]);
       }
-  
-      //  printf(",");
-  
-      //  printf("誤差逆搬运\n");
-  
+      //printf("\n");
+      //printf("Error%d %f\n", m, err(label[m], L_input));  
       //　出力層修正
       for(j = 0; j < Clu; j++){
 	n_net[Layer - 1][j].e = op_layer_e(label[m][j], n_net[Layer - 1][j].h);
-	// printf("Layer[%d] Unit[%d]: epsilon, %f 系数项 label :%f \n",Layer -1, j, n_net[Layer - 1][j].e, label[m][j]);
+        //printf("Layer[%d] Unit[%d]: epsilon, %f 系数项 label :%f output : %f\n",Layer -1, j, n_net[Layer - 1][j].e, label[m][j], n_net[Layer - 1][j].h);
       }    
 
       double e2bcorr[Clu], w2bcorr[Clu];
       // 隠れ層修正
       // 需要存在前后一层
-      if(Layer >=2){
-	for(i = Layer - 2; i >= 0; i--){
-
-	  for(j = 0; j < Clu; j++){
-	    e2bcorr[j] = n_net[i + 1][j].e;
-	  }
+      for(i = Layer - 2; i >= 0; i--){
+	for(j = 0; j < Clu; j++){
+	  e2bcorr[j] = n_net[i + 1][j].e;
+	}
     
-	  for(j = 0; j < Clu; j++){
-	    for(k = 0; k < Clu; k++){
-	      w2bcorr[k] = n_net[i + 1][k].w[j];
-	    }
-	    n_net[i][j].e = hid_layer_e(w2bcorr, e2bcorr, n_net[i][j].h);
-	    // printf("Layer[%d] Unit[%d]: epsilon, %f \n",i, j, n_net[i][j].e);
+	for(j = 0; j < Clu; j++){
+	  for(k = 0; k < Clu; k++){
+	    w2bcorr[k] = n_net[i + 1][k].w[j];
 	  }
+	  n_net[i][j].e = hid_layer_e(w2bcorr, e2bcorr, n_net[i][j].h);
+	  //printf("Layer[%d] Unit[%d]: epsilon, %f \n",i, j, n_net[i][j].e);
 	}
       }
+      
       // 改w
       // 改非首层
       for(i = Layer - 1; i > 0; i--){
 	for(j = 0; j < Clu; j++){
 	  for(k = 0; k < Clu; k++){
-	    n_net[i][j].w[k] += - rho * n_net[i][j].e * n_net[i - 1][j].h;
-	    // printf("Layer[%d] Unit[%d] weight[%d] : %f \n",i, j ,k, n_net[i][j].w[k]);
+	    n_net[i][j].w[k] += - rho * n_net[i][j].e * n_net[i - 1][k].h;
+	    //printf("n_net[%d][%d].w[%d] : %f \n",i, j, k, n_net[1][j].w[k]);
 	  }
 	  b[i] += - rho * n_net[i][j].e;
 	}
       }
-  
+
       // 改第0层
       for(j = 0; j < Clu; j++){
 	for(k = 0; k < Dim; k++){
 	  n_net[0][j].w[k] += - rho * n_net[0][j].e * init_p[k];
-	  // printf("Layer[%d] Unit[%d] weight[%d] : %f, 系数项: %f %f %f\n",0, j ,k, n_net[i][j].w[k], rho, n_net[0][j].e, init_p[k]);
+	  //	  printf("n_net[%d][%d].w[%d] : %f \n",0, j ,k, n_net[0][j].w[k]);
 	}
 	b[0] += - rho * n_net[0][j].e;
       }
 
       /* for(i = 0; i < Layer; i++){ */
-      /*   printf(" Layer %d 's weight\n", i); */
-      /*   for(j = 0; j < Clu; j++){ */
-      /*     N_print_weight(&n_net[i][j], i); */
-      /*   } */
-      /*   printf("\n"); */
+      /* 	for(j = 0; j < Clu; j++){ */
+      /* 	  N_print_weight(&n_net[i][j], i); */
+      /* 	} */
       /* } */
-  
-      //  printf("\n");
+      
     }
+    
     printf("\n");
   }
 
