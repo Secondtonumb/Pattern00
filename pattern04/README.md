@@ -9,8 +9,13 @@
 
 プログラム解説：
 -
-nw: network_training ニューネルネットワークのパラメータのトレーニングを行う。
+#nw: network_training ニューネルネットワークのパラメータのトレーニングを行う。
 
+`"Usage: ./nw\t <training_pattern_list>\n"
+	 "\t<init_bias>\t" "<init_weight_list_for_training>\n"
+         "\t<bias_training_output>\t" "<weights_training_output_list>\n"
+         "\t<TRAINING LOG>"`
+	 
 ただし、収束条件を三つを提供している。
 
 0. 学習パターンに応じるクラスターの出力は全部の出力の最大値である場合、収束として認める（弱収束条件）
@@ -19,6 +24,10 @@ nw: network_training ニューネルネットワークのパラメータのト�
 
 nw を実行する際にガイダンスは出てくるためそれを参照してください。
 
+#rec: recognition 未知パターンの認識を行う。
+`"Usage: ./rec <testset.list>\n"
+           "\t<trained_bias> <trained_weights.list>"`
+	   
 実行方法：
 -
 まずディレクトリ`exp`の存在を確かめる。
@@ -53,12 +62,12 @@ exp
 ```
 ファイルが一致していなくともいいですが、ディレクトリ及びファイルの構造を一致にしてください。
 
-学習及び認識を行う場合
-認識:
+#学習及び認識を行う場合
+##認識:
 
 `./rec.sh`
 
-学習のプロセスを可視化する場合：
+#学習のプロセスを可視化する場合：
 必要とする環境：
 
 ```
