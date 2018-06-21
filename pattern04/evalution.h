@@ -60,3 +60,18 @@ int max_ele_index(double *arr,int len){
   }
   return max_element_number;
 }
+
+/* expect arr[Max], other arr[a] <= threshold */
+/* Accept == 1 Other == 0 */
+int judge_low_thre(double *array, int len, int max_index, double thre){
+  int i;
+  int res = 0;
+  for(i = 0; i < len; i++){
+    if (i == max_index) continue;
+    if( array[i] > thre){
+      res = 1;
+      break;
+    }
+  }
+  return res;
+}

@@ -34,7 +34,7 @@ echo "Recognition Module Complie Complete"
 
 echo "Step2: Training"
 
-./nw ${TRAIN_ROOT}/${P_LST} ${TRAIN_ROOT}/${B_FILE} ${TRAIN_ROOT}/${W_LST} ${TEST_ROOT}/${B_FILE}  ${TEST_ROOT}/${W_LST} $1 > ${TRAIN_LOG}
+./nw ${TRAIN_ROOT}/${P_LST} ${TRAIN_ROOT}/${B_FILE} ${TRAIN_ROOT}/${W_LST} ${TEST_ROOT}/${B_FILE}  ${TEST_ROOT}/${W_LST} ${TRAIN_LOG}
 
 echo "Step3: Recognition"
 

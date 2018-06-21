@@ -103,6 +103,7 @@ int main(int argc, char *argv[]){
   for(m = 0; m < PTN_NUM; m++){
 
     double *init_p = p_arr[m].data;
+    printf("%s\n", ptn_name);
     data_print(&p_arr[m]);
     /* Forward */
 

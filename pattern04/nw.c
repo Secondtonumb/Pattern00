@@ -27,17 +27,50 @@ int main(int argc, char *argv[]){
   char *weight_listfile = argv[3];
   char *res_bias_name = argv[4];
   char *res_weight_listfile = argv[5];
+  char *tn_log_name = argv[6];
 
-  int conv_method = atoi(argv[6]);
+  /* Choose Convergence Condition */
+  int conv_method;
+  printf("#         Choose Convergence Condition           #\n"
+	 "# [ 0 ] --------  Weak Convergence Condition     #\n"
+	 "# [ 1 ] --------  Strong Convergence Condition   #\n"
+	 "# [ 2 ] --------  Test Mode(Define Epoch Number) #\n");
+  
+  scanf("%d", &conv_method);
+  
+  if(conv_method == 0){
+    printf("#    Use Weak Convergence Condition   #\n"
+	   "#          Generate Condition         #\n"
+	   "#   Output[cluster] > Output[Others]  #\n");
+  }
 
-  double Threshold = 0.1;
-  int epoch = 10000;
+  double Up_thre, Low_thre;
+  if(conv_method == 1){
+    printf("#   Use Strong Convergence Condition        #\n"
+	   "#          Generate Condition               #\n"
+	   "#     Output[cluster] > Up_threshold        #\n"
+	   "#     Output[others]  < Lower_threshold     #\n");
+    printf("\nInput Upper Thershold (0.0 ~ 1.0)\n");
+    scanf("%lf",&Up_thre);
+    printf("\nInput Lower Thershold (0.0 ~ 1.0)\n");
+    scanf("%lf",&Low_thre);
+  }
+  
+  int epoch;
+  if(conv_method == 2){
+    printf("#         Test Mode         #\n"
+           "#     Generate Condition    #\n"
+           "#     Iteration == Epoch    #\n");
+    printf("\nInput Epoch (Integer Commend over 1000) \n");
+    scanf("%d",&epoch);
+  }
   
   FILE *ptn_files = fopen(learning_listfile, "r");
   FILE *bias_file = fopen(bias_name, "r");
   FILE *weight_files = fopen(weight_listfile, "r");
   FILE *res_weight_files = fopen(res_weight_listfile, "r");
   FILE *res_bias_file = fopen(res_bias_name, "w");
+  FILE *tn_log_file = fopen(tn_log_name, "w");
   
   int LEARNING_NUM;
   
@@ -157,26 +190,39 @@ int main(int argc, char *argv[]){
       }
 
       for(j = 0; j < Clu; j++){
-	printf("%f,", L_input[j]);
+	fprintf(tn_log_file, "%f,", L_input[j]);
       }
-      
-      /* if(judge_max(L_input, Clu, p_arr[m].pclass) != -1){ */
-      /* 	flag[m] = 1; */
-      /* } */
 
-      /* if(label[m][p_arr[m].pclass] - L_input[p_arr[m].pclass] > Threshold){ */
-      /* 	flag[m] = 1; */
-      /* } */
+      /* Convergence condition branches */
+      switch(conv_method){
+      case 0:
+	if(judge_max(L_input, Clu, p_arr[m].pclass) != -1){
+	  flag[m] = 1;
+	}
+	else{
+          flag[m] = 0;
+        }
+	break;
+	
+      case 1:
+	if(L_input[p_arr[m].pclass] < Up_thre && judge_low_thre(L_input, Clu, p_arr[m].pclass, Low_thre)){
+	  flag[m] = 1;
+	}
+	else{
+          flag[m] = 0;
+        }
+	break;
 
-      if(n < epoch * LEARNING_NUM){
-      	flag[m] = 1;
-      	n ++;
+      case 2:
+	if(n < epoch * LEARNING_NUM){
+	  flag[m] = 1;
+	  n++;
+	}
+	else{
+	  flag[m] = 0;
+	}
+	break;	
       }
-      
-      else{
-	flag[m] = 0;
-      }
-      
       /* Backward */
 
       /* Get Output Layer's Epsilon */
@@ -219,9 +265,11 @@ int main(int argc, char *argv[]){
 	b[0] += - rho * n_net[0][j].e;
       } 
     }    
-    printf("\n");
+    fprintf(tn_log_file,"\n");
   }
 
+  fclose(tn_log_file);
+  
   /* Parameter Output */
   // Weights
   char res_name[256];

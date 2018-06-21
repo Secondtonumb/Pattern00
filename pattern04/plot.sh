@@ -9,18 +9,21 @@ TRAIN_LOG="${ROOT}/log.csv"
 echo "Step0: Data Preparation"
 
 cd ${TRAIN_ROOT}
-
-ls ${TRAIN_ROOT}/ptns/* > ${P_LST}
-ls ${TRAIN_ROOT}/weights/* > ${W_LST}
+# training data
+ls ${TRAIN_ROOT}/ptns/*.dat > ${P_LST}
+ls ${TRAIN_ROOT}/weights/*.dat > ${W_LST}
 
 cd ${TEST_ROOT}
+# recon data
 
-ls ${TEST_ROOT}/ptns/* > ${P_LST}
+ls ${TEST_ROOT}/ptns/*.dat > ${P_LST}
 
-cp ${TRAIN_ROOT}/weights/* ${TEST_ROOT}/weights/
-ls ${TEST_ROOT}/weights/* > ${W_LST}
+cp ${TRAIN_ROOT}/weights/*.dat ${TEST_ROOT}/weights/
+ls ${TEST_ROOT}/weights/*.dat > ${W_LST}
 
 cd ${ROOT}
+# training log
+touch ${TRAIN_LOG}
 
 echo  "Step1: Compile"
 
@@ -34,7 +37,9 @@ echo "Recognition Module Complie Complete"
 
 echo "Step2: Training"
 
-./nw ${TRAIN_ROOT}/${P_LST} ${TRAIN_ROOT}/${B_FILE} ${TRAIN_ROOT}/${W_LST} ${TEST_ROOT}/${W_LST} ${TEST_ROOT}/${B_FILE} $1 > ${TRAIN_LOG}
+./nw ${TRAIN_ROOT}/${P_LST} ${TRAIN_ROOT}/${B_FILE} ${TRAIN_ROOT}/${W_LST} ${TEST_ROOT}/${B_FILE} ${TEST_ROOT}/${W_LST} ${TRAIN_LOG}
+
+echo "Step3: Training Progress Plot"
 
 FN=$(wc -l < ${TRAIN_ROOT}/${P_LST})
 
