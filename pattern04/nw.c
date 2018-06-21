@@ -12,7 +12,10 @@
   
 int main(int argc, char *argv[]){
   if(argc != 7){
-    printf("Usage: ./nw <training_pattern_list>\n" "<init_bias>\n" "<init_weight_list_for_training>\n" "<bias_training_result>\n" "<weights_training_result_list>\n" "<convolution method>");
+    printf("Usage: ./nw\t <training_pattern_list>\n"
+	   "\t<init_bias>\t" "<init_weight_list_for_training>\n"
+	   "\t<bias_training_output>\t" "<weights_training_output_list>\n"
+	   "\t<TRAINING LOG>");
     exit(1);
   }
   

@@ -1,3 +1,4 @@
+#!/bin/bash
 ROOT="${PWD}"
 TRAIN_ROOT="${ROOT}/exp/train"
 TEST_ROOT="${ROOT}/exp/test"
@@ -23,22 +24,36 @@ ls ${TEST_ROOT}/weights/*.dat > ${W_LST}
 cd ${ROOT}
      			 
 echo  "Step1: Compile"
+if [ ! -e nw ]
+then
+    gcc -o nw nw.c
+    echo "Training Module Complie Complete"
+else
+    echo "Training Module Already exist"
+fi
 
-gcc -o nw nw.c
-
-echo "Training Module Complie Complete"
-
-gcc -o rec rec.c
-
-echo "Recognition Module Complie Complete"
+if [ ! -e rec ]
+then
+    gcc -o rec rec.c
+    echo "Recognition Module Complie Complete"
+else
+    echo "Recognition Module Already exist"
+fi
 
 echo "Step2: Training"
 
-./nw ${TRAIN_ROOT}/${P_LST} ${TRAIN_ROOT}/${B_FILE} ${TRAIN_ROOT}/${W_LST} ${TEST_ROOT}/${B_FILE}  ${TEST_ROOT}/${W_LST} ${TRAIN_LOG}
+./nw ${TRAIN_ROOT}/${P_LST}  \
+     ${TRAIN_ROOT}/${B_FILE} \
+     ${TRAIN_ROOT}/${W_LST}  \
+     ${TEST_ROOT}/${B_FILE}  \
+     ${TEST_ROOT}/${W_LST}   \
+     ${TRAIN_LOG}
 
 echo "Step3: Recognition"
 
-./rec ${TEST_ROOT}/${P_LST} ${TEST_ROOT}/${B_FILE} ${TEST_ROOT}/${W_LST}
+./rec ${TEST_ROOT}/${P_LST}  \
+      ${TEST_ROOT}/${B_FILE} \
+      ${TEST_ROOT}/${W_LST}
 
 
 

@@ -35,7 +35,7 @@ void get_feature(Pattern *p, FILE *ptr){
 void data_print(Pattern *data2print){
   int i;
   for(i = 0; i < data2print->dim; i++){
-      printf("%.0f ", data2print->data[i]);
+      printf("%f ", data2print->data[i]);
     }
   printf("\n");
 }

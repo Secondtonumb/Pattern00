@@ -12,7 +12,8 @@
 
 int main(int argc, char *argv[]){
   if(argc != 4){
-    printf("Usage: ./rec <testset.list> <trained_bias> <trained_weights.list>");
+    printf("Usage: ./rec <testset.list>\n"
+	   "\t<trained_bias> <trained_weights.list>");
     exit(1);
   }
   
@@ -103,7 +104,6 @@ int main(int argc, char *argv[]){
   for(m = 0; m < PTN_NUM; m++){
 
     double *init_p = p_arr[m].data;
-    printf("%s\n", ptn_name);
     data_print(&p_arr[m]);
     /* Forward */
 
