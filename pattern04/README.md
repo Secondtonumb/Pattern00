@@ -83,7 +83,7 @@ pandas
 `./plot.sh`
 
 によって、各パターンの訓練プロセスが見える。
-![image](pattern_recogn/pattern04/plot_exp.png)
+![image](https://github.com/Secondtonumb/pattern_recogn/blob/master/pattern04/plot_exp.png)
 なお、訓練プロセスがlog.csvに保存されている。
 
 plotもこのファイルに依存し可視化になる。
