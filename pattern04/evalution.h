@@ -46,3 +46,17 @@ int conv(int a[], int n){
   }
     return flag;
 }
+
+int max_ele_index(double *arr,int len){
+  int i;
+
+  double max = arr[0];
+  int max_element_number = 0;
+  for(i = 1; i < len; i++){
+    if(max < arr[i]){
+      max = arr[i];
+      max_element_number = i;
+    }
+  }
+  return max_element_number;
+}

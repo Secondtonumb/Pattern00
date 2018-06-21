@@ -22,4 +22,19 @@ int get_pattern_type(char *str){
   return i;
 }
 
+void weight_output(Neural *N, FILE *fp, int l){
+  int k;
+  if(l == 0){
+    for(k = 0; k < Dim; k++){
+      fprintf(fp,"%f ",N->w[k]);
+    }
+    fprintf(fp,"\n");
+  }
+  else{
+    for(k = 0; k < Clu; k++){
+      fprintf(fp,"%f ",N->w[k]);
+    }
+    fprintf(fp,"\n");
+  }
+}
 #endif
