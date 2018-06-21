@@ -9,7 +9,7 @@
 
 プログラム解説：
 -
-#nw: network_training ニューネルネットワークのパラメータのトレーニングを行う。
+nw: network_training ニューネルネットワークのパラメータのトレーニングを行う。
 
 `"Usage: ./nw\t <training_pattern_list>\n"
 	 "\t<init_bias>\t" "<init_weight_list_for_training>\n"
@@ -24,7 +24,7 @@
 
 nw を実行する際にガイダンスは出てくるためそれを参照してください。
 
-#rec: recognition 未知パターンの認識を行う。
+rec: recognition 未知パターンの認識を行う。
 `"Usage: ./rec <testset.list>\n"
            "\t<trained_bias> <trained_weights.list>"`
 	   
@@ -62,12 +62,12 @@ exp
 ```
 ファイルが一致していなくともいいですが、ディレクトリ及びファイルの構造を一致にしてください。
 
-#学習及び認識を行う場合
-##認識:
+学習及び認識を行う場合
+認識:
 
 `./rec.sh`
 
-#学習のプロセスを可視化する場合：
+学習のプロセスを可視化する場合：
 必要とする環境：
 
 ```
@@ -83,7 +83,7 @@ pandas
 `./plot.sh`
 
 によって、各パターンの訓練プロセスが見える。
-
+![image](pattern_recogn/pattern04/plot_exp.png)
 なお、訓練プロセスがlog.csvに保存されている。
 
 plotもこのファイルに依存し可視化になる。
