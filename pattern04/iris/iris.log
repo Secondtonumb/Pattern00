@@ -1,0 +1,48 @@
+Step0: Data Preparation
+Step1: Compile
+Training Module Complie Complete
+Recognition Module Complie Complete
+Step2: Training
+#         Choose Convergence Condition           #
+# [ 0 ] --------  Weak Convergence Condition     #
+# [ 1 ] --------  Strong Convergence Condition   #
+# [ 2 ] --------  Test Mode(Define Epoch Number) #
+#   Use Strong Convergence Condition        #
+#          Generate Condition               #
+#     Output[cluster] > Up_threshold        #
+#     Output[others]  < Lower_threshold     #
+
+Input Upper Thershold (0.0 ~ 1.0)
+
+Input Lower Thershold (0.0 ~ 1.0)
+Step3: Recognition
+4.700000 3.200000 1.300000 0.200000 
+1.000000,1.000000,0.999997,
+Recog result: CLuster[0]
+5.100000 3.500000 1.400000 0.300000 
+1.000000,1.000000,0.999997,
+Recog result: CLuster[0]
+5.700000 2.800000 4.100000 1.300000 
+1.000000,1.000000,0.999998,
+Recog result: CLuster[0]
+6.000000 2.700000 5.100000 1.600000 
+1.000000,0.999737,1.000000,
+Recog result: CLuster[2]
+6.400000 2.900000 4.300000 1.300000 
+1.000000,1.000000,0.999997,
+Recog result: CLuster[0]
+5.700000 2.900000 4.200000 1.300000 
+1.000000,1.000000,0.999998,
+Recog result: CLuster[0]
+6.900000 3.200000 5.700000 2.300000 
+1.000000,0.999735,1.000000,
+Recog result: CLuster[2]
+6.300000 3.400000 5.600000 2.400000 
+1.000000,0.999739,1.000000,
+Recog result: CLuster[2]
+6.300000 2.800000 5.100000 1.500000 
+1.000000,0.999735,1.000000,
+Recog result: CLuster[2]
+6.400000 2.800000 5.600000 2.200000 
+1.000000,0.999755,1.000000,
+Recog result: CLuster[2]
