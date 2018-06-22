@@ -12,10 +12,9 @@
 nw: network_training ニューネルネットワークのパラメータのトレーニングを行う。
 
 ```
-"Usage: ./nw  <training_pattern_list> "
-	 "<init_bias>" "<init_weight_list_for_training>"
-         "<bias_training_output>" "<weights_training_output_list>"
-         "<TRAINING LOG>"
+"Usage: ./nw  <training_pattern_list> <init_bias> <init_weight_list_for_training>
+         <bias_training_output>  <weights_training_output_list>
+         <TRAINING LOG>
 ```
 	 
 ただし、収束条件を三つを提供している。
@@ -27,6 +26,7 @@ nw: network_training ニューネルネットワークのパラメータのト�
 nw を実行する際にガイダンスは出てくるためそれを参照してください。
 
 rec: recognition 未知パターンの認識を行う。
+
 ```
 "Usage: ./rec <testset.list>"
            "<trained_bias> <trained_weights.list>"
@@ -35,6 +35,7 @@ rec: recognition 未知パターンの認識を行う。
 実行方法：
 -
 まずディレクトリ`exp`の存在を確かめる。
+
 ```
 $ tree exp
 exp
@@ -64,6 +65,7 @@ exp
 
 6 directories, 17 files
 ```
+
 ファイルが一致していなくともいいですが、ディレクトリ及びファイルの構造を一致にしてください。
 
 学習及び認識を行う場合
@@ -82,6 +84,7 @@ matplotlib.pyplot
 argparse
 pandas
 ```
+
 そして、
 
 `./plot.sh`
