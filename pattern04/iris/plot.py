@@ -23,8 +23,8 @@ for i in xrange(pics):
     for x in xrange(10):
         plt.subplot(10 // 2, 2, x + 1)
         for y in xrange(clu):
-            plt.title("pic %d pattern%d" %(i, x))
-            plt.plot(xrange(len(data[:, 0])), data[:, i * 10 * clu + x * clu + y], label="Pattern %d cluster %d" % (x, y))
+            plt.title("pattern%d" %(i * 10 + x))
+            plt.plot(xrange(len(data[:, 0])), data[:, i * 10 * clu + x * clu + y], label="Clu %d" % (y))
             plt.ylim(0, 1)
             plt.legend(fontsize=5)
     plt.tight_layout()

@@ -34,7 +34,7 @@ echo  "Step1: Compile"
 
 echo "Step2: Training"
 
-./nw iris_train.dat  \
+./nw sort_iris_train.dat  \
      ${TRAIN_ROOT}/${B_FILE} \
      ${TRAIN_ROOT}/${W_LST}  \
      ${TEST_ROOT}/${B_FILE}  \

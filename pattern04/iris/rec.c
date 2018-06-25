@@ -45,6 +45,8 @@ int main(int argc, char *argv[]){
 
     fscanf(ptn_files, "%d", &p_arr[m].pclass);
 
+    // printf("Pattern Cluster: %d\n", p_arr[m].pclass);
+
     data_malloc(&p_arr[m]);
 
     for(i = 1; i < Dim + 1; i++){
@@ -97,11 +99,13 @@ int main(int argc, char *argv[]){
   double *L_input; //Layer's input
   L_input = malloc(sizeof(double) * Clu);
 
+
+  int err_num = 0;
   /* Training Begin */
   for(m = 0; m < PTN_NUM; m++){
 
     double *init_p = p_arr[m].data;
-    data_print(&p_arr[m]);
+    //data_print(&p_arr[m]);
     /* Forward */
 
     for(j = 0; j < Clu; j++){
@@ -124,13 +128,28 @@ int main(int argc, char *argv[]){
       }
     }
 
+    printf("Pattern[%d]\n",m);
     for(j = 0; j < Clu; j++){
       printf("%f,", L_input[j]);
     }
+    printf("\n");
+    
     int res = max_ele_index(L_input, Clu);
-    printf("\nRecog result: CLuster[%d]\n", res);
+    printf("True Cluster: [%d]\t"
+	   "Recog result: [%d]\n"
+	   "========\n",p_arr[m].pclass, res);
+
+    if(p_arr[m].pclass != res) {
+      err_num++;
+    }
   }
 
+  double err_rate;
+
+  err_rate = (err_num * 1.0) / PTN_NUM * 1.0 ;
+
+  printf("Error Rate : %lf\n", err_rate);
+  
   // Data Free Module
   for(i = 0; i < Layer; i++){
     for(j = 0; j < Clu; j++){

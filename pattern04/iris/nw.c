@@ -163,7 +163,9 @@ int main(int argc, char *argv[]){
   }
 
   /* Training Begin */
+  int count = 0;
   while(conv(flag, LEARNING_NUM)){
+    count ++;
     for(m = 0; m < LEARNING_NUM; m++){
       double *init_p = p_arr[m].data;
 
@@ -270,6 +272,7 @@ int main(int argc, char *argv[]){
 
   fclose(tn_log_file);
   
+  printf("\nEpoch : %d\n", count);
   /* Parameter Output */
   // Weights
   char res_name[256];

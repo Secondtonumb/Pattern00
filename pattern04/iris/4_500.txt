@@ -1,0 +1,58 @@
+Step0: Data Preparation
+Step1: Compile
+Training Module Complie Complete
+Recognition Module Complie Complete
+Step2: Training
+#         Choose Convergence Condition           #
+# [ 0 ] --------  Weak Convergence Condition     #
+# [ 1 ] --------  Strong Convergence Condition   #
+# [ 2 ] --------  Test Mode(Define Epoch Number) #
+#         Test Mode         #
+#     Generate Condition    #
+#     Iteration == Epoch    #
+
+Input Epoch (Integer Commend over 1000) 
+
+Epoch : 501
+Step3: Recognition
+Pattern[0]
+0.997215,0.800393,0.100218,
+True Cluster: [0]	Recog result: [0]
+========
+Pattern[1]
+0.997219,0.800410,0.100074,
+True Cluster: [0]	Recog result: [0]
+========
+Pattern[2]
+0.995904,0.820692,0.128738,
+True Cluster: [1]	Recog result: [0]
+========
+Pattern[3]
+0.016744,0.994940,0.991167,
+True Cluster: [1]	Recog result: [1]
+========
+Pattern[4]
+0.996460,0.807043,0.119595,
+True Cluster: [1]	Recog result: [0]
+========
+Pattern[5]
+0.995873,0.821410,0.129213,
+True Cluster: [1]	Recog result: [0]
+========
+Pattern[6]
+0.017057,0.994930,0.991029,
+True Cluster: [2]	Recog result: [1]
+========
+Pattern[7]
+0.016359,0.994948,0.991340,
+True Cluster: [2]	Recog result: [1]
+========
+Pattern[8]
+0.021911,0.994818,0.988909,
+True Cluster: [2]	Recog result: [1]
+========
+Pattern[9]
+0.014976,0.994982,0.991965,
+True Cluster: [2]	Recog result: [1]
+========
+Error Rate : 0.700000
