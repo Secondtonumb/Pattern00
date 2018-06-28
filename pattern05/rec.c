@@ -2,165 +2,92 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define Dim 4
-#define Clu 3
+#define Dim 3
+#define Clu 2
+
 
 #include "evalution.h"
-#include "neural.h"
 #include "data.h"
 #include "file.h"
 
+typedef struct Stump_{
+  int feat_index;
+  double threshold;
+  double mini_gini;
+}Stump;
+#include "sort.h"
+
 int main(int argc, char *argv[]){
   if(argc != 4){
-    printf("Usage: ./rec <testset.list>\n"
-	   "\t<trained_bias> <trained_weights.list>");
+    printf("Usage: ./cart rec.dat forest.dat <judge_dimension>\n");
     exit(1);
   }
-  
   int i, j, k; //i -> Layer, j -> Cluster, k -> Ptn Dimension
   
   int m; // m -> Ptn number;
+  int n;
 
-  char *learning_ptns = argv[1];
-  char *bias_name = argv[2];
-  char *weight_listfile = argv[3];
+  char *learning_listfile = argv[1];
+  char *forest_name = argv[2];
+  int judge_dim = atoi(argv[3]);
   
-  FILE *ptn_files = fopen(learning_ptns, "r");
-  FILE *bias_file = fopen(bias_name, "r");
-  FILE *weight_files = fopen(weight_listfile, "r");
+  FILE *ptn_files = fopen(learning_listfile, "r");
+  FILE *forest_file = fopen(forest_name, "r");
   
-  int PTN_NUM;
-  PTN_NUM = learning_ptn_num(ptn_files);
-  int Layer;
-  Layer = learning_ptn_num(weight_files);
+  int LEARNING_NUM;  
+  LEARNING_NUM = learning_ptn_num(ptn_files);
 
-  char ptn_name[256],w_name[256];
-  Pattern p_arr[PTN_NUM];
+  Pattern p_arr[LEARNING_NUM];
 
-  Neural n_net[Layer][Clu];
+  double step_len;
+  int s;
 
-  /* Pattern Input */
-  for(m = 0; m < PTN_NUM; m++){
+  Stump forest[Dim];
+  
+  for(m = 0; m < LEARNING_NUM; m++){
     p_arr[m].dim = Dim;
 
     fscanf(ptn_files, "%d", &p_arr[m].pclass);
 
-    // printf("Pattern Cluster: %d\n", p_arr[m].pclass);
-
     data_malloc(&p_arr[m]);
-
+    
     for(i = 1; i < Dim + 1; i++){
       fscanf(ptn_files, "%lf", &p_arr[m].data[i - 1]);
-    }
-    //    data_print(&p_arr[m]);
+    }    
+    //data_print(&p_arr[m]);
   }
+
   fclose(ptn_files);
 
-  /* Read first Layer's weights */
-  fscanf(weight_files, "%s", w_name);
-  
-  FILE *w_data_file = fopen(w_name, "r");
-
-  for(j = 0; j < Clu; j++){
-    N_first_layer_malloc(&n_net[0][j]);
-  }
-  
-  for(j = 0; j < Clu; j++){
-    for(k = 0; k < Dim ; k++){
-      fscanf(w_data_file, "%lf", &n_net[0][j].w[k]);
-    }
-  }
-  
-  /* Read Other Layers' weights  */
-  for(i = 1; i < Layer; i++){
-    fscanf(weight_files, "%s", w_name);
-
-    FILE *w_data_file = fopen(w_name, "r");
-    for(j = 0; j < Clu; j++){
-      N_malloc(&n_net[i][j]);
-    }
-    for(j = 0; j < Clu; j++){
-      for(k = 0; k < Clu ; k++){
-        fscanf(w_data_file, "%lf", &n_net[i][j].w[k]);
-      }
-    }
-    fclose(w_data_file);
-  }  
-  fclose(weight_files);
-    
-  /* Bias file Input */
-  double *b;
-  b = malloc(sizeof(double) * Layer);
-  for(i = 1; i < Layer + 1; i++){
-    fscanf(bias_file,"%lf", &b[i - 1]);
-  }
-  fclose(bias_file);
-  
-  double *L_input; //Layer's input
-  L_input = malloc(sizeof(double) * Clu);
-
-
-  int err_num = 0;
-  /* Training Begin */
-  for(m = 0; m < PTN_NUM; m++){
-
-    double *init_p = p_arr[m].data;
-    //data_print(&p_arr[m]);
-    /* Forward */
-
-    for(j = 0; j < Clu; j++){
-      n_net[0][j].g = multi(n_net[0][j].w, init_p, Dim) + b[0];
-      n_net[0][j].h = S(n_net[0][j].g);
-    }
-
-    for(j = 0; j < Clu; j++){
-      L_input[j] = n_net[0][j].h;
-    }
-
-    for(i = 1; i < Layer ; i++){
-      for(j = 0; j < Clu; j++){
-	n_net[i][j].g = multi(n_net[i][j].w, L_input, Clu) + b[i];
-	n_net[i][j].h = S(n_net[i][j].g);
-      }
-
-      for(j = 0; j < Clu; j++){
-	L_input[j] = n_net[i][j].h;
-      }
-    }
-
-    printf("Pattern[%d]\n",m);
-    for(j = 0; j < Clu; j++){
-      printf("%f,", L_input[j]);
-    }
-    printf("\n");
-    
-    int res = max_ele_index(L_input, Clu);
-    printf("True Cluster: [%d]\t"
-	   "Recog result: [%d]\n"
-	   "========\n",p_arr[m].pclass, res);
-
-    if(p_arr[m].pclass != res) {
-      err_num++;
-    }
+  for(n = 0; n < Dim; n++){
+    fscanf(forest_file, "%d %lf %lf",
+	   &forest[n].feat_index,
+	   &forest[n].threshold,
+	   &forest[n].mini_gini);
   }
 
-  double err_rate;
+  fclose(forest_file);
 
-  err_rate = (err_num * 1.0) / PTN_NUM * 1.0 ;
+  for(n = 0; n < Dim; n ++){
+    printf("%d %f\n",
+           forest[n].feat_index,
+           forest[n].threshold);
+  }
+  qsort(forest, Dim, sizeof(Stump), comp_stump);
 
-  printf("Error Rate : %lf\n", err_rate);
-  
-  // Data Free Module
-  for(i = 0; i < Layer; i++){
-    for(j = 0; j < Clu; j++){
-      N_free(&n_net[i][j]);
-    }
+  printf("Sorted Forest \n");
+
+  for(n = 0; n < Dim; n ++){
+    printf("%d %f %f \n",
+           forest[n].feat_index,
+           forest[n].threshold,
+           forest[n].mini_gini);
   }
-  
-  for(m = 0 ; m < PTN_NUM; m++){
-    data_free(&p_arr[m]);
+
+  for(m = 0; m < LEARNING_NUM; m++){
+    if(p_arr[m].data[judge_dim] <= forest[judge_dim].threshold)
+      printf("Cluster 1\n");
+    else
+      printf("Cluster 2\n");
   }
-  
-  free(b);
-  free(L_input);
 }

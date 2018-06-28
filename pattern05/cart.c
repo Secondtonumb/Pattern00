@@ -135,9 +135,10 @@ int main(int argc, char *argv[]){
   }
 
   for(n = 0; n < Dim; n++){
-    fprintf(forest_file, "%d %f\n",
+    fprintf(forest_file, "%d %f %f\n",
 	    forest[n].feat_index,
-            forest[n].threshold);
+            forest[n].threshold,
+	    forest[n].mini_gini);
   }
   fclose(forest_file);
 
