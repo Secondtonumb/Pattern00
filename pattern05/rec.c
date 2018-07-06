@@ -18,8 +18,8 @@ typedef struct Stump_{
 #include "sort.h"
 
 int main(int argc, char *argv[]){
-  if(argc != 4){
-    printf("Usage: ./cart rec.dat forest.dat <judge_dimension>\n");
+  if(argc != 3){
+    printf("Usage: ./rec rec.dat forest.dat \n");
     exit(1);
   }
   int i, j, k; //i -> Layer, j -> Cluster, k -> Ptn Dimension
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]){
 
   char *learning_listfile = argv[1];
   char *forest_name = argv[2];
-  int judge_dim = atoi(argv[3]);
+  int judge_dim;
   
   FILE *ptn_files = fopen(learning_listfile, "r");
   FILE *forest_file = fopen(forest_name, "r");
@@ -84,10 +84,13 @@ int main(int argc, char *argv[]){
            forest[n].mini_gini);
   }
 
+  judge_dim = forest[0].feat_index;
+  printf("\n Judge Dimention [%d]\n", judge_dim);
   for(m = 0; m < LEARNING_NUM; m++){
-    if(p_arr[m].data[judge_dim] <= forest[judge_dim].threshold)
+    if(p_arr[m].data[judge_dim] <= forest[0].threshold)
       printf("Cluster 1\n");
     else
       printf("Cluster 2\n");
   }
+
 }
