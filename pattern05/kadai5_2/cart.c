@@ -10,12 +10,6 @@
 #include "data.h"
 #include "file.h"
 
-typedef struct Stump_{
-  int feat_index;
-  double threshold;
-  double mini_gini;
-}Stump;
-
 #include "sort.h"
 
 double gini_imp(double lower, double upper, Node *arr, Pattern *ptn, int n, int class){

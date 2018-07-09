@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define Dim 3
+#define Dim 2
 #define Clu 2
 
 
@@ -10,11 +10,6 @@
 #include "data.h"
 #include "file.h"
 
-typedef struct Stump_{
-  int feat_index;
-  double threshold;
-  double mini_gini;
-}Stump;
 #include "sort.h"
 
 int main(int argc, char *argv[]){

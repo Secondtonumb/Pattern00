@@ -10,19 +10,6 @@
 #include "data.h"
 #include "file.h"
 
-
-typedef struct samp_node_{
-  double type;
-  double w;
-  double cum_w;
-}Samp_Node;
-
-typedef struct Stump_{
-  int feat_index;
-  double threshold;
-  double mini_gini;
-}Stump;
-
 #include "sort.h"
 
 int Samp_Types(Node *arr, int len){
@@ -47,16 +34,21 @@ double resamp(Samp_Node *s, int n, double rate){
 }
 
 int main(int argc, char *argv[]){
+  if(argc != 4){
+    printf("Usage: ./resamp ptns.dat resamp.list  <resamples_num>");
+    exit(1);
+  }
   
   int i, j, k; //i -> Layer, j -> Cluster, k -> Ptn Dimension
   int m; // m -> Ptn number;
   int n;
 
   char *learning_listfile = argv[1];
-  int RESAMPS = atoi(argv[2]);
-
+  char *resample_listfile = argv[2];
+  int RESAMPS = atoi(argv[3]);
   
   FILE *ptn_files = fopen(learning_listfile, "r");
+  FILE *resamp_files = fopen(resample_listfile, "r");
   
   int LEARNING_NUM;  
   LEARNING_NUM = learning_ptn_num(ptn_files);
@@ -89,7 +81,12 @@ int main(int argc, char *argv[]){
 
   fclose(ptn_files);
 
+  char resamp_name[256];
   for(n = 0; n < Dim; n ++){
+    fscanf(resamp_files, "%s", resamp_name);
+
+    FILE *res_file = fopen(resamp_name, "w");
+      
     for(m = 0; m < LEARNING_NUM; m++){
       array[m].value = p_arr[m].data[n];
       array[m].index = m;
@@ -154,22 +151,22 @@ int main(int argc, char *argv[]){
     for(s = 0; s < samp_types; s++){
       printf("%f \t  %f \t  %f \n", samp_list[s].type, samp_list[s].w, samp_list[s].cum_w);
     }
+    
     int x;
     double resamples[RESAMPS];
     double r;
     for(x = 0; x < RESAMPS; x++){
       r = (rand()%100) / 100.0;
-      //printf("%f \n",r);
       resamples[x] = resamp(samp_list, samp_types, r);
     }
     
     qsort(resamples, RESAMPS, sizeof(double), comp_double);
     
     for(x = 0; x < RESAMPS; x++){
-      printf("%f \n", resamples[x]);
+      fprintf(res_file, "%f\n", resamples[x]);
     }
-    
+    fclose(res_file);
     free(samp_list);
   }
-
+  fclose(resamp_files);
 }
