@@ -51,11 +51,11 @@ int main(int argc, char *argv[]){
   int n;
 
   char *learning_listfile = argv[1];
-  char *resample_listfile = argv[2];
+  char *resample_name = argv[2];
   int RESAMPS = atoi(argv[3]);
   
   FILE *ptn_files = fopen(learning_listfile, "r");
-  FILE *resamp_files = fopen(resample_listfile, "r");
+  FILE *resamp_file = fopen(resample_name, "w");
   
   int LEARNING_NUM;  
   LEARNING_NUM = learning_ptn_num(ptn_files);
@@ -89,10 +89,6 @@ int main(int argc, char *argv[]){
   int s;
   int old = 0;
   for(n = 0; n < Clu; n++){
-
-    fscanf(resamp_files, "%s", resamp_name);
-
-    FILE *res_file = fopen(resamp_name, "w");
     
     int samp_alts_num;
     
@@ -105,7 +101,7 @@ int main(int argc, char *argv[]){
 
 
     for(s = 0; s < samp_alts_num; s++){
-      samp_alts[s].pclass = n + 1;
+      samp_alts[s].type = n + 1;
       samp_alts[s].w = 1.0 / (samp_alts_num * 1.0);
       //printf("%f \n",samp_alts[s].w);
       
@@ -139,37 +135,40 @@ int main(int argc, char *argv[]){
     int x;
     Samp_Node resamples[samp_num];
     double r;
+
     for(x = 0; x < samp_num; x++){
       r = (rand()%1000) / 1000.0;
 
       if(r <= samp_alts[0].cum_w){
-	resamples[x].w = 1.0 / samp_num;
-	resamples[x].pclass = samp_alts[0].pclass;
+	resamples[x].w = 1.0 / (samp_num * 1.0);
+	resamples[x].type = samp_alts[0].type;
 	resamples[x].data = samp_alts[0].data;
       }
       else{
 	for(s = 1; s < samp_alts_num; s++){
 	  if(samp_alts[s - 1].cum_w < r && r <= samp_alts[s].cum_w) {
-	    resamples[x].pclass = samp_alts[s].pclass;
+	    resamples[x].w = 1.0 / (samp_num * 1.0);
+	    resamples[x].type = samp_alts[s].type;
 	    resamples[x].data = samp_alts[s].data;
 	    break;
 	  }
 	}
       }
     }
-
+    
     for(x = 0; x < samp_num; x++){
-      fprintf(res_file, "%d ", resamples[x].pclass);
+      fprintf(resamp_file, "%d ", resamples[x].type);
       for(m = 0; m < Dim; m++){
-    	fprintf(res_file, "%f ", resamples[x].data[m]);
+    	fprintf(resamp_file, "%f ", resamples[x].data[m]);
       }
-      fprintf(res_file, "%f ",resamples[x].w);
-      fprintf(res_file, "\n");
+      //fprintf(resamp_file, "%f ",resamples[x].w);
+      fprintf(resamp_file, "\n");
     }
     
-    fclose(res_file);
     free(samp_alts);
     old = old + samp_alts_num;
+
   }
-  fclose(resamp_files);
+  
+  fclose(resamp_file);
 }

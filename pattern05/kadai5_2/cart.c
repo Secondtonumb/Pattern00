@@ -58,6 +58,24 @@ int func_thre_alt_nums(Node *ptns, int n){
   return count;
 }
 
+/* 判断阈值左侧的类属于1类还是2类 */
+/* 判断方式 */
+/* 计算阈值两侧出现最多元素的比例 记为p1 p2 */
+/* 若p1 >= p2 且 p1.class != p2.class 则左侧为p1.class */
+/* 若p1 >= p2 而 p1.class == p2.class 则左右均为p1.class(默认)  */
+/* 调用most frequnency */
+
+/* int judge_class(Pattern *p, Stump s, int start, int end, double thre, int dim){ */
+/*   int i; */
+/*   int res; */
+/*   int TYPE_DIC = {1, 2}; */
+/*   int array[start - end]; */
+/*   for(i = start; i < end ; i++){ */
+/*     left[i - start] = p[dim].data[i]; */
+/*   } */
+/*   res = maxfreq_ele(array, start - end, TYPE_DIC, Clu); */
+/*   return res; */
+/* } */
 
 int main(int argc, char *argv[]){
   if(argc != 3){
@@ -145,9 +163,10 @@ int main(int argc, char *argv[]){
     forest[n].threshold = thre[0];
     forest[n].mini_gini = 1;
     
+    //alt_nums 阈值备选
     for(s = 0; s < alt_nums; s++){
       thre[1] = thre_alts[s];
-
+      
       double last_gini = gini;
       gini = 0;
 
@@ -158,9 +177,11 @@ int main(int argc, char *argv[]){
       
       for(i = 0; i < Clu; i++){
 	double temp;
+	//有问题需要改
+	forest[n].class = n + 1;
 	temp = gini_imp(thre[i], thre[i + 1], array, p_arr, LEARNING_NUM, i + 1);
 	gini += temp;
-	printf("thre %f gini of class %d --> %f gini sum -- > %f\n", thre[1], i + 1, temp, gini);
+	/* printf("thre %f gini of class %d --> %f gini sum -- > %f\n", thre[1], i + 1, temp, gini); */
       }
       if(gini < last_gini){
 	forest[n].threshold = thre[1];
@@ -170,8 +191,9 @@ int main(int argc, char *argv[]){
   }
 
   for(n = 0; n < Dim; n++){
-    fprintf(forest_file, "%d %f %f\n",
+    fprintf(forest_file, "%d %d %f %f\n",
   	    forest[n].feat_index,
+	    forest[n].class,
             forest[n].threshold,
   	    forest[n].mini_gini);
   }
@@ -180,10 +202,12 @@ int main(int argc, char *argv[]){
   /* qsort(forest, Dim, sizeof(Stump), comp_stump); */
 
   /* printf("Sorted Forest \n"); */
-  
+
+  printf("feat_index clsss threshold mini_gini\n");
   for(n = 0; n < Dim; n ++){
-    printf("%d %f %f \n",
+    printf("%d %d %f %f\n",
            forest[n].feat_index,
+	   forest[n].class,
            forest[n].threshold,
            forest[n].mini_gini);
   }

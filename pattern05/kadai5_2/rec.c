@@ -55,8 +55,9 @@ int main(int argc, char *argv[]){
   fclose(ptn_files);
 
   for(n = 0; n < Dim; n++){
-    fscanf(forest_file, "%d %lf %lf",
+    fscanf(forest_file, "%d %d %lf %lf",
 	   &forest[n].feat_index,
+	   &forest[n].class,
 	   &forest[n].threshold,
 	   &forest[n].mini_gini);
   }

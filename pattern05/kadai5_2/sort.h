@@ -10,14 +10,14 @@ typedef struct node{
 
 typedef struct Stump_{
   int feat_index;
-  int class;
+  int class; 
   double threshold;
   double importance;
   double mini_gini;
 }Stump;
 
 typedef struct samp_node_{
-  int pclass;
+  int type;
   double *data;
   double w;
   double cum_w;
@@ -29,10 +29,14 @@ typedef struct samp_node_{
 /* int comp_array(const void *a, const void *b){ */
 /*   return(*(struct node *)a).value > (*(struct node *)b).value ? 1 : -1; */
 /* } */
+int comp_array(const void *a, const void *b){
+  return(*(struct node *)a).value > (*(struct node *)b).value ? 1 : -1;
+}
 
 int comp_pclass(const void *a, const void *b){
   return(*(Pattern *)a).pclass > (*(Pattern *)b).pclass ? 1 : -1;
 }
+
 
 int comp_stump(const void *a, const void *b){
   return(*(Stump *)a).mini_gini > (*(Stump *)b).mini_gini ? 1 : -1;
@@ -41,6 +45,7 @@ int comp_stump(const void *a, const void *b){
 int comp_sample(const void *a, const void *b){
   return(*(Samp_Node *)a).w > (*(Samp_Node *)b).w ? 1: -1;
 }
+
 int comp_double(const void *a, const void *b){
   return(*(double *)a) > (*(double *)b) ? 1: -1;
 }
