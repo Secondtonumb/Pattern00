@@ -15,6 +15,7 @@ typedef struct Stump_{
   double threshold;
   double mini_gini;
 }Stump;
+
 #include "sort.h"
 
 int main(int argc, char *argv[]){
@@ -36,7 +37,7 @@ int main(int argc, char *argv[]){
   
   int LEARNING_NUM;  
   LEARNING_NUM = learning_ptn_num(ptn_files);
-
+  
   Pattern p_arr[LEARNING_NUM];
 
   double step_len;
@@ -85,6 +86,7 @@ int main(int argc, char *argv[]){
   }
 
   judge_dim = forest[0].feat_index;
+
   printf("\n Judge Dimention [%d]\n", judge_dim);
   for(m = 0; m < LEARNING_NUM; m++){
     if(p_arr[m].data[judge_dim] <= forest[0].threshold)

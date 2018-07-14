@@ -23,7 +23,10 @@ void normalization(double *arr, int len){
 }
 
 int main(int argc, char *argv[]){
-  
+  if(argc != 4){
+    printf("Usage: resamp.dat forest.dat new_forest.dat\n");
+    exit(1);
+  }
   int i, j, k; //i -> Layer, j -> Cluster, k -> Ptn Dimension
   int m; // m -> Ptn number;
   int n;
@@ -77,13 +80,13 @@ int main(int argc, char *argv[]){
   	   &forest[n].mini_gini);
   }
 
-  for(n = 0; n < FOREST_NUM; n++){
-    printf("%d %d %lf %lf\n",
-           forest[n].feat_index,
-           forest[n].class,
-           forest[n].threshold,
-           forest[n].mini_gini);
-  }
+  /* for(n = 0; n < FOREST_NUM; n++){ */
+  /*   printf("%d %d %lf %lf\n", */
+  /*          forest[n].feat_index, */
+  /*          forest[n].class, */
+  /*          forest[n].threshold, */
+  /*          forest[n].mini_gini); */
+  /* } */
   
   fclose(forest_file);
 
@@ -94,8 +97,8 @@ int main(int argc, char *argv[]){
   double h_w[FOREST_NUM];
   // 初始化
   for(m = 0; m < LEARNING_NUM; m++){
-    weight[m] = 1.0 / (LEARNING_NUM* 1.0);
-    printf("%f \n ", weight[m]);
+    weight[m] = 1.0 / (LEARNING_NUM * 1.0);
+    // printf("%f \n ", weight[m]);
   }
 
   for(n = 0; n < FOREST_NUM; n++){
@@ -127,15 +130,14 @@ int main(int argc, char *argv[]){
 	  eps += weight[m];
 	}
       }
-      
-      printf("error %d eps %f h_w %f\n", error, eps, h_w[n]);
+      printf("error %d eps %f\n", error, eps);
     }
     
     h_w[n] = 0.5 * log((1.0 - eps) / eps);
 
     //error 识别错误的个数 eps 错误率 h_w 识别器权重
-    printf("tree %d 's final tree\n", n);
-    printf("error %d eps %f h_w %f\n", error, eps, h_w[n]);
+    printf("\n===> Tree %d 's Final Result <===\n", n);
+    printf("===> Error %d \t eps %f \t h_w %f\n", error, eps, h_w[n]);
     
     for(m = 0; m < LEARNING_NUM; m++){
       if(array[m].value < forest[n].threshold){
@@ -155,14 +157,16 @@ int main(int argc, char *argv[]){
           weight[m] = weight[m] * exp( -h_w[n] * (1.0));
         }
       }
-      printf("new_weight %f\n", weight[m]);
+      /* printf("new_weight %f\n", weight[m]); */
     }
 
     normalization(weight, LEARNING_NUM);
-    printf("Normalized\n");
+    printf("\n ===> Normalized Weights <===\n");
+
     for(m = 0; m < LEARNING_NUM; m++){
       printf("new_weight %f\n", weight[m]);
     }
+    
     printf("\n");
 
     fprintf(new_forest_file, "%d %d %f %f %f\n",
@@ -172,7 +176,7 @@ int main(int argc, char *argv[]){
 	    forest[n].mini_gini,
 	    h_w[n]);
   }
-  fclose(new_forest_file);
 
+  fclose(new_forest_file);
 }
 

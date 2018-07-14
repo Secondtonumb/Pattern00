@@ -42,12 +42,12 @@ int main(int argc, char *argv[]){
   for(m = 0; m < LEARNING_NUM; m++){
     p_arr[m].dim = Dim;
 
-    fscanf(ptn_files, "%d", &p_arr[m].pclass);
+    // fscanf(ptn_files, "%d", &p_arr[m].pclass);
 
     data_malloc(&p_arr[m]);
     
-    for(i = 1; i < Dim + 1; i++){
-      fscanf(ptn_files, "%lf", &p_arr[m].data[i - 1]);
+    for(i = 0; i < Dim ; i++){
+      fscanf(ptn_files, "%lf", &p_arr[m].data[i]);
     }    
     //data_print(&p_arr[m]);
   }

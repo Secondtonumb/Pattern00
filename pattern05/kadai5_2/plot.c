@@ -47,10 +47,10 @@ int sign(double x){
 }
 
 int main(int argc, char *argv[]){
-  if(argc != 3){
-    printf("Usage: ./strong rec.dat new_forest.dat \n");
-    exit(1);
-  }
+  /* if(argc != 3){ */
+  /*   printf("Usage: ./strong rec.dat new_forest.dat \n"); */
+  /*   exit(1); */
+  /* } */
 
   int i, j, k; //i -> Layer, j -> Cluster, k -> Ptn Dimension
   int m; // m -> Ptn number;
@@ -58,6 +58,7 @@ int main(int argc, char *argv[]){
 
   char *learning_listfile = argv[1];
   char *forest_name = argv[2];
+  
   int judge_dim;
   
   FILE *ptn_files = fopen(learning_listfile, "r");
@@ -101,14 +102,14 @@ int main(int argc, char *argv[]){
 	   &h_w[n]);
   }
 
-  for(n = 0; n < FOREST_NUM; n++){
-    printf("%d %d %lf %lf %lf\n",
-           forest[n].feat_index,
-           forest[n].class,
-           forest[n].threshold,
-           forest[n].mini_gini,
-           h_w[n]);
-  }
+  /* for(n = 0; n < FOREST_NUM; n++){ */
+  /*   printf("%d %d %lf %lf %lf\n", */
+  /*          forest[n].feat_index, */
+  /*          forest[n].class, */
+  /*          forest[n].threshold, */
+  /*          forest[n].mini_gini, */
+  /*          h_w[n]); */
+  /* } */
 
   fclose(forest_file);  
 
@@ -117,10 +118,11 @@ int main(int argc, char *argv[]){
     temp = revert(sign(H(p_arr[m], forest, FOREST_NUM, h_w)));
     p_arr[m].pclass = temp;
   }
+
   
   for(m = 0; m < LEARNING_NUM; m++){
-    printf("\nPattern [%d]\t", m);
-    data_print(&p_arr[m]);
-    printf("Recon Result %d\n",p_arr[m].pclass);
+    printf("%d ", p_arr[m].pclass);
+    if(m % 101== 100) printf("\n");
   }
+  
 }

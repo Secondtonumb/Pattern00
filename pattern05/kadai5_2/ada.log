@@ -1,0 +1,614 @@
+LEARNING_NUM 100 
+FOREST_NUM 2 
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 3.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 4.000000 Pattern kind : 2
+error 1 eps 0.010000
+feature : 4.000000 Pattern kind : 2
+error 2 eps 0.020000
+feature : 4.000000 Pattern kind : 2
+error 3 eps 0.030000
+feature : 4.000000 Pattern kind : 2
+error 4 eps 0.040000
+feature : 4.000000 Pattern kind : 2
+error 5 eps 0.050000
+feature : 4.000000 Pattern kind : 2
+error 6 eps 0.060000
+feature : 4.000000 Pattern kind : 2
+error 7 eps 0.070000
+feature : 4.000000 Pattern kind : 2
+error 8 eps 0.080000
+feature : 4.000000 Pattern kind : 2
+error 9 eps 0.090000
+feature : 4.000000 Pattern kind : 2
+error 10 eps 0.100000
+feature : 4.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 5.000000 Pattern kind : 1
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 6.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 7.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+feature : 8.000000 Pattern kind : 2
+error 11 eps 0.110000
+
+===> Tree 0 's Final Result <===
+===> Error 11 	 eps 0.110000 	 h_w 1.045371
+
+ ===> Normalized Weights <===
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.045455
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+new_weight 0.005618
+
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 2
+error 0 eps 0.000000
+feature : 2.000000 Pattern kind : 1
+error 1 eps 0.005618
+feature : 2.000000 Pattern kind : 1
+error 2 eps 0.011236
+feature : 2.000000 Pattern kind : 1
+error 3 eps 0.016854
+feature : 2.000000 Pattern kind : 1
+error 4 eps 0.022472
+feature : 2.000000 Pattern kind : 1
+error 5 eps 0.028090
+feature : 2.000000 Pattern kind : 1
+error 6 eps 0.033708
+feature : 2.000000 Pattern kind : 1
+error 7 eps 0.039326
+feature : 2.000000 Pattern kind : 1
+error 8 eps 0.044944
+feature : 2.000000 Pattern kind : 1
+error 9 eps 0.050562
+feature : 2.000000 Pattern kind : 1
+error 10 eps 0.056180
+feature : 2.000000 Pattern kind : 1
+error 11 eps 0.061798
+feature : 2.000000 Pattern kind : 1
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 3.000000 Pattern kind : 2
+error 12 eps 0.067416
+feature : 4.000000 Pattern kind : 1
+error 13 eps 0.073034
+feature : 4.000000 Pattern kind : 1
+error 14 eps 0.118488
+feature : 4.000000 Pattern kind : 1
+error 15 eps 0.163943
+feature : 4.000000 Pattern kind : 1
+error 16 eps 0.209397
+feature : 4.000000 Pattern kind : 1
+error 17 eps 0.254852
+feature : 4.000000 Pattern kind : 1
+error 18 eps 0.300306
+feature : 4.000000 Pattern kind : 1
+error 19 eps 0.345761
+feature : 4.000000 Pattern kind : 1
+error 20 eps 0.391216
+feature : 4.000000 Pattern kind : 1
+error 21 eps 0.436670
+feature : 4.000000 Pattern kind : 1
+error 22 eps 0.482125
+feature : 4.000000 Pattern kind : 1
+error 23 eps 0.527579
+feature : 4.000000 Pattern kind : 1
+error 24 eps 0.573034
+feature : 4.000000 Pattern kind : 1
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 5.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 6.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 6.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 6.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 6.000000 Pattern kind : 2
+error 25 eps 0.578652
+feature : 6.000000 Pattern kind : 1
+error 26 eps 0.584270
+feature : 6.000000 Pattern kind : 2
+error 26 eps 0.584270
+feature : 6.000000 Pattern kind : 1
+error 27 eps 0.589888
+feature : 6.000000 Pattern kind : 1
+error 28 eps 0.595506
+feature : 6.000000 Pattern kind : 2
+error 28 eps 0.595506
+feature : 6.000000 Pattern kind : 2
+error 28 eps 0.595506
+feature : 6.000000 Pattern kind : 1
+error 29 eps 0.601124
+feature : 6.000000 Pattern kind : 1
+error 30 eps 0.606742
+feature : 6.000000 Pattern kind : 2
+error 30 eps 0.606742
+feature : 6.000000 Pattern kind : 1
+error 31 eps 0.612360
+feature : 6.000000 Pattern kind : 1
+error 32 eps 0.617978
+feature : 6.000000 Pattern kind : 1
+error 33 eps 0.623596
+feature : 6.000000 Pattern kind : 2
+error 33 eps 0.623596
+feature : 6.000000 Pattern kind : 2
+error 33 eps 0.623596
+feature : 6.000000 Pattern kind : 1
+error 34 eps 0.629213
+feature : 6.000000 Pattern kind : 2
+error 34 eps 0.629213
+feature : 6.000000 Pattern kind : 2
+error 34 eps 0.629213
+feature : 6.000000 Pattern kind : 1
+error 35 eps 0.634831
+feature : 6.000000 Pattern kind : 2
+error 35 eps 0.634831
+feature : 6.000000 Pattern kind : 2
+error 35 eps 0.634831
+feature : 6.000000 Pattern kind : 1
+error 36 eps 0.640449
+feature : 6.000000 Pattern kind : 2
+error 36 eps 0.640449
+feature : 6.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+feature : 8.000000 Pattern kind : 1
+error 37 eps 0.646067
+
+===> Tree 1 's Final Result <===
+===> Error 37 	 eps 0.646067 	 h_w -0.300899
+
+ ===> Normalized Weights <===
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.035178
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.004348
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+new_weight 0.007937
+

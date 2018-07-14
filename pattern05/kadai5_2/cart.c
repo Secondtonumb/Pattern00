@@ -26,10 +26,8 @@ double gini_imp(double lower, double upper, Node *arr, Pattern *ptn, int n, int 
       }
     }    
   }
-
   /* printf("count all : %d\n", count_all); */
   /* printf("count right : %d\n", count_right); */
-
   if(count_all == 0)
     return 0;
   else{
@@ -47,10 +45,10 @@ void thre_init(double *arr, int n, double lower, double upper){
 }
 
 
-int func_thre_alt_nums(Node *ptns, int n){
+int func_thre_alt_nums(Node *ptns, int len){
   int i;
   int count = 0;
-  for (i = 1; i < n; i++){
+  for (i = 1; i < len; i++){
     if(ptns[i].value != ptns[i - 1].value){
       count ++;
     }
@@ -58,23 +56,22 @@ int func_thre_alt_nums(Node *ptns, int n){
   return count;
 }
 
-/* 判断阈值左侧的类属于1类还是2类 */
-/* 判断方式 */
-/* 计算阈值两侧出现最多元素的比例 记为p1 p2 */
-/* 若p1 >= p2 且 p1.class != p2.class 则左侧为p1.class */
-/* 若p1 >= p2 而 p1.class == p2.class 则左右均为p1.class(默认)  */
-/* 调用most frequnency */
-
-/* int judge_class(Pattern *p, Stump s, int start, int end, double thre, int dim){ */
-/*   int i; */
+/* int judge_class(Node *p, Pattern *ptn, double thre){ */
+/*   int i = 0; */
+/*   int cnt = 0; */
+/*   int cnt_1 = 0; */
 /*   int res; */
-/*   int TYPE_DIC = {1, 2}; */
-/*   int array[start - end]; */
-/*   for(i = start; i < end ; i++){ */
-/*     left[i - start] = p[dim].data[i]; */
+/*   while(p[i].value < thre){ */
+/*     printf("p[i].index %d , p[i].value %d \n", cnt, cnt_1); */
+/*     cnt ++; */
+/*     if(p[i].index == 1){ */
+/*       cnt_1 ++;  */
+/*     } */
+/*     printf("cnt %d , cnt_1 %d \n", cnt, cnt_1); */
+/*     i++; */
 /*   } */
-/*   res = maxfreq_ele(array, start - end, TYPE_DIC, Clu); */
-/*   return res; */
+/*   if(cnt_1 >= (cnt - cnt_1)) return 1; */
+/*   else return 2; */
 /* } */
 
 int main(int argc, char *argv[]){
@@ -160,6 +157,7 @@ int main(int argc, char *argv[]){
 
     thre_init(thre, Clu + 1, array[0].value, array[LEARNING_NUM - 1].value);
 
+
     forest[n].threshold = thre[0];
     forest[n].mini_gini = 1;
     
@@ -179,6 +177,7 @@ int main(int argc, char *argv[]){
 	double temp;
 	//有问题需要改
 	forest[n].class = n + 1;
+	/* forest[n].class = judge_class(array, p_arr, thre[1]); */
 	temp = gini_imp(thre[i], thre[i + 1], array, p_arr, LEARNING_NUM, i + 1);
 	gini += temp;
 	/* printf("thre %f gini of class %d --> %f gini sum -- > %f\n", thre[1], i + 1, temp, gini); */

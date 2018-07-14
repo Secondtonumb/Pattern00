@@ -111,13 +111,13 @@ int main(int argc, char *argv[]){
     
     qsort(samp_alts, samp_alts_num, sizeof(Samp_Node), comp_sample);
 
-    for(s = 0; s < samp_alts_num; s++){
-      printf("%f\n", samp_alts[s].w);
-      for(m = 0; m < Dim; m++){
-	printf("%f ", samp_alts[s].data[m]);
-      }
-      printf("\n");
-    }
+    /* for(s = 0; s < samp_alts_num; s++){ */
+    /*   printf("%f\n", samp_alts[s].w); */
+    /*   for(m = 0; m < Dim; m++){ */
+    /* 	printf("%f ", samp_alts[s].data[m]); */
+    /*   } */
+    /*   printf("\n"); */
+    /* } */
 
     samp_alts[0].cum_w = samp_alts[0].w;
     
