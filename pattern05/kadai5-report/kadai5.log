@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.5.13)  14 JUL 2018 08:09
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.5.13)  16 JUL 2018 00:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1335,161 +1335,148 @@ LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
 (Font)              scaled to size 11.09619pt on input line 96.
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 11.28003pt on input line 96.
-LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 100.
-LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 100.
-LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 100.
 LaTeX Font Info:    Try loading font information for OT1+zpltlf on input line 1
-03.
+01.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newpx/ot1zpltlf.fd
 File: ot1zpltlf.fd 2015/01/17 v1.0 font definition file for OT1/zpl/tlf
 )
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 103.
+(Font)              scaled to size 10.0pt on input line 101.
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 6.2pt on input line 103.
+(Font)              scaled to size 7.3pt on input line 101.
 LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
-(Font)              scaled to size 5.5pt on input line 103.
+(Font)              scaled to size 5.5pt on input line 101.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 5.73302pt on input line 103.
+(Font)              scaled to size 6.75018pt on input line 101.
 LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
-(Font)              scaled to size 5.08575pt on input line 103.
+(Font)              scaled to size 5.08575pt on input line 101.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 103.
+(Font)              size <5> substituted on input line 101.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.5> not available
-(Font)              size <5> substituted on input line 103.
+(Font)              size <5> substituted on input line 101.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 103.
+(Font)              size <5> substituted on input line 101.
 
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 103.
+(Font)              scaled to size 9.24683pt on input line 101.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 5.73302pt on input line 103.
+(Font)              scaled to size 6.75018pt on input line 101.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 5.08575pt on input line 103.
-LaTeX Font Info:    Try loading font information for U+npxmia on input line 103
+(Font)              scaled to size 5.08575pt on input line 101.
+LaTeX Font Info:    Try loading font information for U+npxmia on input line 101
 .
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newpx/unpxmia.fd
 File: unpxmia.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxmia.
 )
-LaTeX Font Info:    Try loading font information for U+npxsym on input line 103
+LaTeX Font Info:    Try loading font information for U+npxsym on input line 101
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newpx/unpxsym.fd
 File: unpxsym.fd 2015/03/21 Fontinst v1.933 font definitions for U/npxsym.
 )
-LaTeX Font Info:    Try loading font information for U+npxsyc on input line 103
+LaTeX Font Info:    Try loading font information for U+npxsyc on input line 101
 .
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/newpx/unpxsyc.fd
 File: unpxsyc.fd 2013/03/24 Fontinst v1.933 font definitions for U/npxsyc.
 )
+LaTeX Font Info:    Font shape `JT2/hmc/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 109.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 109.
+LaTeX Font Info:    Font shape `T1/zpltlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 109.
 LaTeX Font Info:    Font shape `JT2/hmc/bx/n' will be
-(Font)              scaled to size 7.39746pt on input line 106.
+(Font)              scaled to size 7.39746pt on input line 115.
 LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
-(Font)              scaled to size 7.39746pt on input line 106.
+(Font)              scaled to size 7.39746pt on input line 115.
 LaTeX Font Info:    Font shape `T1/zpltlf/bx/n' in size <8> not available
-(Font)              Font shape `T1/zpltlf/b/n' tried instead on input line 106.
+(Font)              Font shape `T1/zpltlf/b/n' tried instead on input line 115.
 
 LaTeX Font Info:    Font shape `T1/zpltlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 106.
-LaTeX Font Info:    Font shape `OT1/zpltlf/b/n' will be
-(Font)              scaled to size 8.0pt on input line 108.
-LaTeX Font Info:    Font shape `OT1/zpltlf/b/n' will be
-(Font)              scaled to size 6.2pt on input line 108.
-LaTeX Font Info:    Font shape `OT1/zpltlf/b/n' will be
-(Font)              scaled to size 5.5pt on input line 108.
-LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
-(Font)              scaled to size 5.73302pt on input line 108.
-LaTeX Font Info:    Font shape `JY2/hmc/bx/n' will be
-(Font)              scaled to size 5.08575pt on input line 108.
-LaTeX Font Info:    Try loading font information for TS1+zpltlf on input line 1
-19.
+(Font)              scaled to size 8.0pt on input line 115.
+LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 126.
+LaTeX Font Info:    Font shape `OT1/zpltlf/m/n' will be
+(Font)              scaled to size 6.2pt on input line 126.
+LaTeX Font Info:    Font shape `JY2/hmc/m/n' will be
+(Font)              scaled to size 5.73302pt on input line 126.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 7.39746pt on input line 126.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 5.73302pt on input line 126.
 
-(/usr/local/texlive/2018/texmf-dist/tex/latex/newpx/ts1zpltlf.fd
-File: ts1zpltlf.fd 2015/01/18 v1.0 fd file for TS1/zpltlf
-)
-LaTeX Font Info:    Font shape `TS1/zpltlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 119.
-Missing character: There is no ^^db in font cmbsy8!
- [1
 
-]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
-)
+) [1
+
+]
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 147.
+(Font)              scaled to size 9.24683pt on input line 139.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 147.
-LaTeX Font Info:    Try loading font information for T1+zi4 on input line 147.
+(Font)              scaled to size 9.24683pt on input line 139.
+LaTeX Font Info:    Try loading font information for T1+zi4 on input line 139.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.0pt on input line 147.
+(Font)              scaled to size 10.0pt on input line 139.
 LaTeX Font Info:    Font shape `JT2/hgt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 147.
+(Font)              scaled to size 4.62341pt on input line 139.
 LaTeX Font Info:    Font shape `JY2/hgt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 147.
+(Font)              scaled to size 4.62341pt on input line 139.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 5.0pt on input line 147.
-LaTeX Font Info:    Try loading font information for TS1+zi4 on input line 150.
+(Font)              scaled to size 5.0pt on input line 139.
+LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
+(Font)              scaled to size 9.40002pt on input line 187.
 
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+) [2]
+[3]
+LaTeX Font Info:    Try loading font information for TS1+zi4 on input line 295.
 
-(/usr/local/texlive/2018/texmf-dist/tex/latex/inconsolata/ts1zi4.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/inconsolata/ts1zi4.fd
 File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
-(Font)              scaled to size 5.0pt on input line 150.
-LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 9.40002pt on input line 190.
-File: epoch_1000.png Graphic file (type bmp)
-<epoch_1000.png>
- [2]
-(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-File: clu_plots/100.png Graphic file (type bmp)
-<clu_plots/100.png>
-File: clu_plots/weak.png Graphic file (type bmp)
-<clu_plots/weak.png>
-File: clu_plots/1000.png Graphic file (type bmp)
-<clu_plots/1000.png>
-File: clu_plots/strong.png Graphic file (type bmp)
-<clu_plots/strong.png>
-File: clu_plots/10000.png Graphic file (type bmp)
-<clu_plots/10000.png>
- [3]
+(Font)              scaled to size 5.0pt on input line 295.
+
 [4]
-File: unstable.png Graphic file (type bmp)
-<unstable.png>
-File: unstable_test.png Graphic file (type bmp)
-<unstable_test.png>
- [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 349.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 349.
+File: Tree.png Graphic file (type bmp)
+<Tree.png>
+File: Ada.png Graphic file (type bmp)
+<Ada.png>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[5]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 396.
+ [6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 396.
  (./kadai5.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 349.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 349.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 396.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 396.
 Package rerunfilecheck Info: File `kadai5.out' has not changed.
-(rerunfilecheck)             Checksum: 9DD442643C38C5BFFE191DE273CC3600;848.
+(rerunfilecheck)             Checksum: 12B7B7DAD0A156E6D9AB71F6B42901EC;801.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1500,12 +1487,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26948 strings out of 493270
- 455621 string characters out of 6145018
- 695196 words of memory out of 5000000
- 30391 multiletter control sequences out of 15000+600000
- 72307 words of font info for 141 fonts, out of 8000000 for 9000
+ 26941 strings out of 493270
+ 455014 string characters out of 6145018
+ 778451 words of memory out of 5000000
+ 30399 multiletter control sequences out of 15000+600000
+ 70310 words of font info for 139 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 54i,17n,93p,894b,1555s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,9n,93p,894b,1551s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kadai5.dvi (5 pages, 78024 bytes).
+Output written on kadai5.dvi (6 pages, 94228 bytes).

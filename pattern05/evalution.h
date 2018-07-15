@@ -75,3 +75,20 @@ int judge_low_thre(double *array, int len, int max_index, double thre){
   }
   return res;
 }
+
+int reverse(int a){
+  if(a == 2)return 1;
+  else if(a == 1)return 2;
+  else return 0;
+}
+
+int judge(int a){
+  if(a == 2) return -1;
+  else if(a == 1) return 1;
+  else return 0;
+}
+int revert(int a){
+  if(a == -1) return 2;
+  else if(a == 1) return 1;
+  else return 0;
+}

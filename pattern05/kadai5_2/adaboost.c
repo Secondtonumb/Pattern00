@@ -115,7 +115,7 @@ int main(int argc, char *argv[]){
     
     for(m = 0; m < LEARNING_NUM; m++){
       printf("feature : %f Pattern kind : %d\n",
-	     array[m].value, array[m].index);
+      	     array[m].value, array[m].index);
 
       if(array[m].value < forest[n].threshold){
 	if(array[m].index != forest[n].class){
@@ -140,6 +140,10 @@ int main(int argc, char *argv[]){
     printf("===> Error %d \t eps %f \t h_w %f\n", error, eps, h_w[n]);
     
     for(m = 0; m < LEARNING_NUM; m++){
+      /* Weight Correction */
+      /* For valuies under threshold, 
+	 if class is right, Correct weight to make it smaller  
+	 if class is wrong , Correct weight to make it bigger*/
       if(array[m].value < forest[n].threshold){
         if(array[m].index != forest[n].class){
           weight[m] = weight[m] * exp( - h_w[n] * (-1.0));

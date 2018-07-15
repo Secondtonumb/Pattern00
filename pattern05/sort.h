@@ -2,20 +2,54 @@
 #include <stdlib.h>
 
 /* Struct for Function [qsort] */
+
 typedef struct node{
   double value;
   int index;
 }Node;
 
+typedef struct Stump_{
+  int feat_index;
+  int class; 
+  double threshold;
+  double importance;
+  double mini_gini;
+}Stump;
+
+typedef struct samp_node_{
+  int type;
+  double *data;
+  double w;
+  double cum_w;
+}Samp_Node;
+
 /* Function for [qsort], adapted for struct node */
 /* Ascending Order */
+
+/* int comp_array(const void *a, const void *b){ */
+/*   return(*(struct node *)a).value > (*(struct node *)b).value ? 1 : -1; */
+/* } */
 int comp_array(const void *a, const void *b){
   return(*(struct node *)a).value > (*(struct node *)b).value ? 1 : -1;
 }
 
+int comp_pclass(const void *a, const void *b){
+  return(*(Pattern *)a).pclass > (*(Pattern *)b).pclass ? 1 : -1;
+}
+
+
 int comp_stump(const void *a, const void *b){
   return(*(Stump *)a).mini_gini > (*(Stump *)b).mini_gini ? 1 : -1;
 }
+
+int comp_sample(const void *a, const void *b){
+  return(*(Samp_Node *)a).w > (*(Samp_Node *)b).w ? 1: -1;
+}
+
+int comp_double(const void *a, const void *b){
+  return(*(double *)a) > (*(double *)b) ? 1: -1;
+}
+
 /* Get the element, which comes most frequently in a int array  */
 /* However,Reject when several values comes at the same frequency,
 which means [-1] when be returned. */
