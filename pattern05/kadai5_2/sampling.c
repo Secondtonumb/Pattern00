@@ -41,10 +41,10 @@ void resamp(Samp_Node *s, Samp_Node res, int len, double rate){
 }
 
 int main(int argc, char *argv[]){
-  /* if(argc != 4){ */
-  /*   printf("Usage: ./resamp ptns.dat resamp.list  <resamples_num>"); */
-  /*   exit(1); */
-  /* } */
+  if(argc != 4){
+    printf("Usage: ./resamp ptns.dat resamp.dat <resamples_num>");
+    exit(1);
+  }
   
   int i, j, k; //i -> Layer, j -> Cluster, k -> Ptn Dimension
   int m; // m -> Ptn number;

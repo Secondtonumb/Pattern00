@@ -88,8 +88,9 @@
 \maketitle
 
 \begin{abstract}
-今回の課題は、決定木手法で特徴量の特徴空間を分割することで、分類や回帰を行う。そして、得られた識別能力の低い識別器を用い、Adaboost手法で強識別器を構築し、識別結果を評価する。
-そのほか、課題のソースコードが既に\href{https://github.com/Secondtonumb/pattern_recogn/tree/master/pattern04}{Github Repository}に掲載されるため、解説が備え、参照あるいは実行することは可能である。
+今回の課題は、決定木手法で特徴量の特徴空間を分割することによって、分類木や回帰木を作る。そして、得られた識別能力の低い識別器を用い、Adaboost手法で強識別器を構築し、識別結果を評価する。
+
+そのほか、課題のソースコードが既に\href{https://github.com/Secondtonumb/pattern_recogn/tree/master/pattern05}{Github Repository}に掲載されるため、解説が備え、参照あるいは実行することは可能である。
 \end{abstract}
 
 \section{決定木による識別}
@@ -103,7 +104,7 @@ $$\sum_{i=1}^{C}\frac{n_{i}}{N}(1-\frac{n_{i}}{N})=1 - \sum_{i=1}^{C}(\frac{n_{i
 
 さらに、今回の実験は二分木であるため、この2分割によるGini不純度の総和を計算する。
 $$G_{total}= \frac{p_{left}}{N}G_{left}+ \frac{p_{right}}{N}G_{right}  $$
-各取り得る閾値から、最もGini不純度の小さいのは分離度は一番良いである。なお、各次元において、Gini不純度の最小である次元上の分離性能は一番高いとも言える。
+各取り得る閾値から、最もGini不純度の小さいのは分離度は一番良いのである。なお、各次元において、Gini不純度の最小である次元上の分離性能は一番高いとも言える。
 学習のアルゴリズムは以下のように表す：
 \begin{itemize}
 \footnotesize
@@ -112,7 +113,7 @@ $$G_{total}= \frac{p_{left}}{N}G_{left}+ \frac{p_{right}}{N}G_{right}  $$
 \item[3] 取り得る閾値を一個づつ代入し、Gini不純度を計算する。今時点のGini不純度は、全て計算されたGini不純度の中で一番低いのではないかを判断する。
 \begin{itemize}
 \footnotesize
-\item3.1一番低いの場合、現時点の閾値を決定木の閾値と認める。
+\item3.1一番低いの場合、現時点の閾値を決定木の閾値と認め、更新を行う。
 \item3.2そうでない場合、従来の閾値を認める。
 \end{itemize}
 \item[4] 全ての次元の閾値とそれに応じるGini不純度をソートし、一番Gini不純度の低い次元を判定次元と認め、その次元上の閾値もクラス間の分離境界と認める。
@@ -161,7 +162,7 @@ $$G_{total}= \frac{p_{left}}{N}G_{left}+ \frac{p_{right}}{N}G_{right}  $$
   }
 }\end{lstlisting}
 
-\item[2] なお、今回のパターンは二分割である、片方のクラスが分かれば、もう一方のクラスはその反転であることと認める。
+\item[2] なお、今回のパターンは二分割である、片方のクラスが分かれば、もう一方のクラスはその反転であることとする。
 \begin{lstlisting}[language=c,caption=Judge Class under Threshold]
 int judge_class(Node *p, Pattern *ptn, double thre, int n){
   int i = 0;
@@ -193,7 +194,7 @@ feat_index clsss threshold mini_gini
 2 1 2.500000 0.100000
 \end{lstlisting}
 
-結果により、各次元においてできた閾値はそれぞれ1.5、2.5、2.5 で、各次元の不純度はそれぞれ0.1875、0.1875、0.1であることがわかった。
+結果により、各次元において、閾値はそれぞれ1.5、2.5、2.5 で、各次元の不純度はそれぞれ0.1875、0.1875、0.1であることがわかった。
 
 \subsubsection{特徴量の選択および未知パターン識別}
 未知パターン$(1, 2, 1),(3, 3, 2)$を代入し、出力は以下のようである。
@@ -211,22 +212,23 @@ p_arr[1] --> Cluster 1
 
 識別結果から、最もgini不純度の低い次元はDim2であるため、それを評価標準として用いる。
 
-その結果、二つのパターンともクラス１と識別され、正解率が50.0%であることがわかった。
-両パターンは第二次元上の差別がそれほど大きくないのは誤識別に導いた結果と想定している。
+その結果、二つのパターンともクラス１と識別され、正解率が50.0\%であることがわかった。
+識別パターンは第二次元上の差別がそれほど大きくないのは誤識別に導いた結果と想定している。
 
-なお、他の次元においては、あえて正しい識別結果になることがわかった。
+なお、他の次元においては、あえて正しい識別結果になれるということがわかった。
 ゆえに、決定株のような識別機の識別能力が低いということが推定できるようになった。
 
 \section{AdaBoostによる識別}
 
 \subsection{プログラム実行例}
 
-\subsection{実験理論およびアルゴリズム}
+\subsection{実験理論}
 
-上記の実験を踏まえて、個別な識別株の識別能力が低いことがわかった。ゆえに、複数個の弱識別器を利用し、より良い性能の高い識別器を構築するのは今回の目標である。
+上記の実験を踏まえて、個別な識別株の識別能力が低いことがわかった。ゆえに、複数個の弱識別器を利用し、より良い性能の高い識別器を構築するのは今回実験の目標である。
 
-パターンの数と識別器の数が少ないため、サンプルの重みを踏まえてリサンプリングを行う。新しいサンプルを利用し、いくつかすでにできた識別器の性能を計り、そして識別器ごとに重みをつける。さらに、複数個の弱識別器で重み付きの多数決で、未知パターンの種類を判別する。具体的にいうと、Adaboostという手法で、識別器の誤ったサンプルの重みを増やすことにより、次の識別器の重み決定に影響を与える。その結果、識別能力の高い順で識別器の信頼性が高くなり、全体的な識別率が上がることがわかった。
-ただし、今回の実験において、弱識別器はStep 1 でできた二つの決定株を利用する。
+パターンの数と識別器の数が少ないため、既知サンプルの重みを踏まえてリサンプリングを行う。新しいサンプルを利用し、いくつかすでにできた識別器の性能を計り、そして識別器ごとに重みをつける。さらに、複数個の弱識別器で重み付きの多数決で、未知パターンの種類を判別する。具体的にいうと、Adaboostという手法で、識別器の誤ったサンプルの重みを増やすことにより、次の識別器の重み決定に影響を与える。その結果、識別能力の高い順で識別器の信頼性が高くなり、全体的な識別率が上がれることがわかった。
+
+ただし、今回の実験において、弱識別器は課題5.1で、二次元でできた二つの決定株を利用する。
 \begin{table}[h]\footnotesize
 \caption{iris実験条件}
 \label{}
@@ -242,7 +244,7 @@ p_arr[1] --> Cluster 1
 
 \subsection{プログラムに工夫した部分}
 \begin{itemize}
-\item[1] リサンプリングの処理手順は以下のように示す。
+\item[1] 重み付きサンプリングの処理手順は以下のように示す。
 \newpage
 
 \begin{lstlisting}[language=c,caption=Gini impurity]
@@ -276,7 +278,7 @@ for(m = 0; m < LEARNING_NUM; m++){
       array[m].value = p_arr[m].data[n];
       array[m].index = p_arr[m].pclass;
     }
-    qsort(array, LEARNING_NUM, sizeof(Node), comp_array);
+    qsort(array, LEARNING_NUM, sizeof(Node), comp_array); // Sort
     for(m = 0; m < LEARNING_NUM; m++){
       if(array[m].value < forest[n].threshold){
         if(array[m].index != forest[n].class){
@@ -316,13 +318,14 @@ for(m = 0; m < LEARNING_NUM; m++){
         }
       }
     }
-
-    normalization(weight, LEARNING_NUM);}\end{lstlisting}
+    normalization(weight, LEARNING_NUM);// Normalization for new weights
+}    
+    \end{lstlisting}
 \end{itemize}
 
 \subsection{プログラム実行例}
-以下はリサンプリング、Adaboost および識別の実行結果である。
-なお、サンプリング数は100として、クラスごとに50個のサンプルがあり、その結果は表3で示す。
+以下は重み付きサンプリング、Adaboost および識別評価の実行結果である。
+なお、サンプリング数は100として、クラスごとに50個のサンプルがあり、重み付きサンプリングの結果は表3で示す。
 \newpage
 
 \begin{table}[h]\footnotesize
@@ -362,7 +365,7 @@ Pattern [1]	       6.000000 7.000000
 Recon Result 2
 \end{lstlisting}
 
-よって、二つの識別器の重みはそれぞれ1.045371、-0.300899であるため、決定性作用になっているのは一番目の決定株であることがわかった。試験結果の無事完全正解(100\%)になった。
+よって、二つの識別器の重みはそれぞれ1.045371、-0.300899であるため、決定性作用になっているのは一番目の決定株であることがわかった。そして、試験結果は完全正解(100\%)になった。
 
 なお、課題5.1の中で利用した手法で識別した結果は、以下のように示す。
 
@@ -375,22 +378,23 @@ Judge Dimention [0]
 p_arr[0] --> Cluster 1 
 p_arr[1] --> Cluster 2 
 \end{lstlisting}
-よって、弱識別器のみ利用する場合と強識別器の場合には、結果が変わらないということがわかった。提供された実験データでは、どちらの識別能力が高いことが区別できないため、Adaboostによる強識別器の識別性能の評価は考察の方で詳しく説明する。
-\subsection{考察}
-二次元パターンにおいて、課題5.1の手法を用いると、とある次元上で2分割することしかできない。しかし、Adaboost手法を用いれば、各次元上で二分割ではなく、他分割になることもなり得る。全体的のイメージとして、下記の図のように、弱識別器(決定木)は線形分離可能なパターンには効くが、線形分離不可能なパターンに分離能力が極めて低いことと想定する。
 
+よって、今回の実験において、弱識別器のみ利用する場合と強識別器の場合には、結果が変わらず、同じ識別率であることがわかった。提供された実験データでは、どちらの識別能力が高いことが区別できないため、Adaboostによる強識別器の識別性能の評価は考察の方で詳しく説明する。
+\subsection{考察}
+高次元のパターンにおいて、決定木(弱識別器)の弱点は、課題5.1の手法を用いると、一番Gini不純度の低い次元しか使わないので、他の次元の含める情報がかなり損失してしまう。閾値左右の不純度が一致する場合(対応クラスも一致)、両辺が同じクラスになるため、可識別クラスの数がさらに落ちてしまう。
+
+しかし、Adaboost手法を用いれば、弱識別器の選び方が妥当であれば、各次元の特徴も最後の多数決に参加可能である。いわば、特徴量より良い効率的に利用する。なお、同じ次元においても、複数個の識別器が共同作用するため、A|B|Aのようがパターンも識別可能になる、弱識別器と比べ、全体的な識別能力が優れたことが想定できる。
+
+イメージとして、決定株は(i)のような分布にしか可能できないか、Adaboostを用いると、(ii)のような分布も識別可能である。
+
+\newpage
 
 \begin{figure}[!h]
 \centering
-\subfigure[Decision Stump]{\includegraphics[width=0.4\textwidth] {Tree}}
-\subfigure[Adaboost]{\includegraphics[width=0.4\textwidth] {Ada}}
+\subfigure[Decision Stump]{\includegraphics[width=0.6\textwidth] {Tree}}
+\subfigure[Adaboost]{\includegraphics[width=0.6\textwidth] {Ada}}
 \caption{弱識別器と強識別器の識別領域} 
 \end{figure}
 
-
-
-\begin{thebibliography}{9}
-    \bibitem{DL} Ian Goodfellow,Yoshua Bengio, Aaron Courville. Deep Learning. MIT Press, 2016.
-\end{thebibliography}
 
 \end{document}
