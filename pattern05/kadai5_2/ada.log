@@ -26,7 +26,23 @@ feature : 1.000000 Pattern kind : 1
 error 0 eps 0.000000
 feature : 1.000000 Pattern kind : 1
 error 0 eps 0.000000
-feature : 2.000000 Pattern kind : 1
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
+error 0 eps 0.000000
+feature : 1.000000 Pattern kind : 1
 error 0 eps 0.000000
 feature : 2.000000 Pattern kind : 1
 error 0 eps 0.000000
@@ -50,15 +66,7 @@ feature : 2.000000 Pattern kind : 1
 error 0 eps 0.000000
 feature : 2.000000 Pattern kind : 1
 error 0 eps 0.000000
-feature : 3.000000 Pattern kind : 1
-error 0 eps 0.000000
-feature : 3.000000 Pattern kind : 1
-error 0 eps 0.000000
-feature : 3.000000 Pattern kind : 1
-error 0 eps 0.000000
-feature : 3.000000 Pattern kind : 1
-error 0 eps 0.000000
-feature : 3.000000 Pattern kind : 1
+feature : 2.000000 Pattern kind : 1
 error 0 eps 0.000000
 feature : 3.000000 Pattern kind : 1
 error 0 eps 0.000000
@@ -96,215 +104,207 @@ feature : 4.000000 Pattern kind : 2
 error 10 eps 0.100000
 feature : 4.000000 Pattern kind : 2
 error 11 eps 0.110000
+feature : 4.000000 Pattern kind : 2
+error 12 eps 0.120000
+feature : 4.000000 Pattern kind : 2
+error 13 eps 0.130000
+feature : 4.000000 Pattern kind : 2
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
-feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
-feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
-feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
-feature : 5.000000 Pattern kind : 1
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 6.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
+feature : 6.000000 Pattern kind : 2
+error 14 eps 0.140000
+feature : 6.000000 Pattern kind : 2
+error 14 eps 0.140000
+feature : 6.000000 Pattern kind : 2
+error 14 eps 0.140000
+feature : 6.000000 Pattern kind : 2
+error 14 eps 0.140000
+feature : 6.000000 Pattern kind : 2
+error 14 eps 0.140000
+feature : 6.000000 Pattern kind : 2
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 7.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
-feature : 8.000000 Pattern kind : 2
-error 11 eps 0.110000
+error 14 eps 0.140000
 
 ===> Tree 0 's Final Result <===
-===> Error 11 	 eps 0.110000 	 h_w 1.045371
+===> Error 14 	 eps 0.140000 	 h_w 0.907645
 
  ===> Normalized Weights <===
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.045455
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
-new_weight 0.005618
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.035714
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
+new_weight 0.005814
 
 feature : 1.000000 Pattern kind : 2
 error 0 eps 0.000000
@@ -332,283 +332,283 @@ feature : 1.000000 Pattern kind : 2
 error 0 eps 0.000000
 feature : 1.000000 Pattern kind : 2
 error 0 eps 0.000000
-feature : 1.000000 Pattern kind : 2
-error 0 eps 0.000000
-feature : 1.000000 Pattern kind : 2
-error 0 eps 0.000000
 feature : 2.000000 Pattern kind : 1
-error 1 eps 0.005618
+error 1 eps 0.005814
 feature : 2.000000 Pattern kind : 1
-error 2 eps 0.011236
+error 2 eps 0.011628
 feature : 2.000000 Pattern kind : 1
-error 3 eps 0.016854
+error 3 eps 0.017442
 feature : 2.000000 Pattern kind : 1
-error 4 eps 0.022472
+error 4 eps 0.023256
 feature : 2.000000 Pattern kind : 1
-error 5 eps 0.028090
+error 5 eps 0.029070
 feature : 2.000000 Pattern kind : 1
-error 6 eps 0.033708
+error 6 eps 0.034884
 feature : 2.000000 Pattern kind : 1
-error 7 eps 0.039326
-feature : 2.000000 Pattern kind : 1
-error 8 eps 0.044944
-feature : 2.000000 Pattern kind : 1
-error 9 eps 0.050562
-feature : 2.000000 Pattern kind : 1
-error 10 eps 0.056180
-feature : 2.000000 Pattern kind : 1
-error 11 eps 0.061798
-feature : 2.000000 Pattern kind : 1
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
 feature : 3.000000 Pattern kind : 2
-error 12 eps 0.067416
+error 7 eps 0.040698
+feature : 3.000000 Pattern kind : 2
+error 7 eps 0.040698
+feature : 3.000000 Pattern kind : 2
+error 7 eps 0.040698
+feature : 3.000000 Pattern kind : 2
+error 7 eps 0.040698
+feature : 3.000000 Pattern kind : 2
+error 7 eps 0.040698
+feature : 3.000000 Pattern kind : 2
+error 7 eps 0.040698
+feature : 3.000000 Pattern kind : 2
+error 7 eps 0.040698
 feature : 4.000000 Pattern kind : 1
-error 13 eps 0.073034
+error 8 eps 0.046512
 feature : 4.000000 Pattern kind : 1
-error 14 eps 0.118488
+error 9 eps 0.052326
 feature : 4.000000 Pattern kind : 1
-error 15 eps 0.163943
+error 10 eps 0.058140
 feature : 4.000000 Pattern kind : 1
-error 16 eps 0.209397
+error 11 eps 0.063953
 feature : 4.000000 Pattern kind : 1
-error 17 eps 0.254852
+error 12 eps 0.069767
 feature : 4.000000 Pattern kind : 1
-error 18 eps 0.300306
+error 13 eps 0.075581
 feature : 4.000000 Pattern kind : 1
-error 19 eps 0.345761
+error 14 eps 0.111296
 feature : 4.000000 Pattern kind : 1
-error 20 eps 0.391216
+error 15 eps 0.147010
 feature : 4.000000 Pattern kind : 1
-error 21 eps 0.436670
+error 16 eps 0.182724
 feature : 4.000000 Pattern kind : 1
-error 22 eps 0.482125
+error 17 eps 0.218439
 feature : 4.000000 Pattern kind : 1
-error 23 eps 0.527579
+error 18 eps 0.254153
 feature : 4.000000 Pattern kind : 1
-error 24 eps 0.573034
+error 19 eps 0.289867
 feature : 4.000000 Pattern kind : 1
-error 25 eps 0.578652
+error 20 eps 0.325581
+feature : 4.000000 Pattern kind : 1
+error 21 eps 0.361296
+feature : 4.000000 Pattern kind : 1
+error 22 eps 0.397010
+feature : 4.000000 Pattern kind : 1
+error 23 eps 0.432724
+feature : 4.000000 Pattern kind : 1
+error 24 eps 0.468439
+feature : 4.000000 Pattern kind : 1
+error 25 eps 0.504153
+feature : 4.000000 Pattern kind : 1
+error 26 eps 0.539867
+feature : 4.000000 Pattern kind : 1
+error 27 eps 0.575581
+feature : 4.000000 Pattern kind : 1
+error 28 eps 0.581395
+feature : 4.000000 Pattern kind : 1
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
 feature : 5.000000 Pattern kind : 2
-error 25 eps 0.578652
-feature : 6.000000 Pattern kind : 2
-error 25 eps 0.578652
-feature : 6.000000 Pattern kind : 2
-error 25 eps 0.578652
-feature : 6.000000 Pattern kind : 2
-error 25 eps 0.578652
-feature : 6.000000 Pattern kind : 2
-error 25 eps 0.578652
+error 29 eps 0.587209
+feature : 5.000000 Pattern kind : 2
+error 29 eps 0.587209
+feature : 5.000000 Pattern kind : 2
+error 29 eps 0.587209
+feature : 5.000000 Pattern kind : 2
+error 29 eps 0.587209
 feature : 6.000000 Pattern kind : 1
-error 26 eps 0.584270
-feature : 6.000000 Pattern kind : 2
-error 26 eps 0.584270
+error 30 eps 0.593023
 feature : 6.000000 Pattern kind : 1
-error 27 eps 0.589888
-feature : 6.000000 Pattern kind : 1
-error 28 eps 0.595506
+error 31 eps 0.598837
 feature : 6.000000 Pattern kind : 2
-error 28 eps 0.595506
+error 31 eps 0.598837
 feature : 6.000000 Pattern kind : 2
-error 28 eps 0.595506
-feature : 6.000000 Pattern kind : 1
-error 29 eps 0.601124
-feature : 6.000000 Pattern kind : 1
-error 30 eps 0.606742
+error 31 eps 0.598837
 feature : 6.000000 Pattern kind : 2
-error 30 eps 0.606742
+error 31 eps 0.598837
 feature : 6.000000 Pattern kind : 1
-error 31 eps 0.612360
+error 32 eps 0.604651
 feature : 6.000000 Pattern kind : 1
-error 32 eps 0.617978
+error 33 eps 0.610465
 feature : 6.000000 Pattern kind : 1
-error 33 eps 0.623596
-feature : 6.000000 Pattern kind : 2
-error 33 eps 0.623596
-feature : 6.000000 Pattern kind : 2
-error 33 eps 0.623596
+error 34 eps 0.616279
 feature : 6.000000 Pattern kind : 1
-error 34 eps 0.629213
-feature : 6.000000 Pattern kind : 2
-error 34 eps 0.629213
-feature : 6.000000 Pattern kind : 2
-error 34 eps 0.629213
+error 35 eps 0.622093
 feature : 6.000000 Pattern kind : 1
-error 35 eps 0.634831
-feature : 6.000000 Pattern kind : 2
-error 35 eps 0.634831
-feature : 6.000000 Pattern kind : 2
-error 35 eps 0.634831
+error 36 eps 0.627907
 feature : 6.000000 Pattern kind : 1
-error 36 eps 0.640449
+error 37 eps 0.633721
 feature : 6.000000 Pattern kind : 2
-error 36 eps 0.640449
+error 37 eps 0.633721
+feature : 6.000000 Pattern kind : 2
+error 37 eps 0.633721
 feature : 6.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 38 eps 0.639535
+feature : 6.000000 Pattern kind : 1
+error 39 eps 0.645349
+feature : 6.000000 Pattern kind : 2
+error 39 eps 0.645349
+feature : 6.000000 Pattern kind : 2
+error 39 eps 0.645349
+feature : 6.000000 Pattern kind : 1
+error 40 eps 0.651163
+feature : 6.000000 Pattern kind : 2
+error 40 eps 0.651163
+feature : 6.000000 Pattern kind : 1
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
-feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
-feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
-feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
-feature : 8.000000 Pattern kind : 1
-error 37 eps 0.646067
+error 41 eps 0.656977
 
 ===> Tree 1 's Final Result <===
-===> Error 37 	 eps 0.646067 	 h_w -0.300899
+===> Error 41 	 eps 0.656977 	 h_w -0.324925
 
  ===> Normalized Weights <===
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.035178
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.004348
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
-new_weight 0.007937
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.027181
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.004425
+new_weight 0.004425
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.004425
+new_weight 0.008475
+new_weight 0.004425
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
+new_weight 0.008475
 

@@ -10,6 +10,7 @@
 #include "data.h"
 #include "file.h"
 #include "sort.h"
+#include "mt19937ar.h"
 
 int Samp_Num(Pattern *arr, int len, int class){
   int i;
@@ -137,8 +138,9 @@ int main(int argc, char *argv[]){
     double r;
 
     for(x = 0; x < samp_num; x++){
-      r = (rand()%1000) / 1000.0;
-
+      // r = (rand()%1000) / 1000.0;
+      r = genrand_real3();
+      
       if(r <= samp_alts[0].cum_w){
 	resamples[x].w = 1.0 / (samp_num * 1.0);
 	resamples[x].type = samp_alts[0].type;
