@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.5.13)  18 JUL 2018 10:46
+This is e-upTeX, Version 3.14159265-p3.8.0-u1.23-180226-2.6 (utf8.uptex) (TeX Live 2018) (preloaded format=uplatex 2018.5.13)  23 JUL 2018 14:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1456,17 +1456,17 @@ File: ts1zi4.fd 2018/01/14 TS1/zi4 (Inconsolata)
 LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
 (Font)              scaled to size 5.0pt on input line 299.
  [4]
-[5] [6]
+[5]
 File: Tree.png Graphic file (type bmp)
 <Tree.png>
 File: Ada.png Graphic file (type bmp)
 <Ada.png>
- [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
+ [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 399.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 399.
  (./kadai5.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 402.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 399.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 399.
 Package rerunfilecheck Info: File `kadai5.out' has not changed.
 (rerunfilecheck)             Checksum: 05E064413F8D80203ADF1F4FCF231169;774.
 
@@ -1481,10 +1481,10 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  26940 strings out of 493270
  455010 string characters out of 6145018
- 775560 words of memory out of 5000000
+ 777560 words of memory out of 5000000
  30398 multiletter control sequences out of 15000+600000
  70310 words of font info for 139 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  54i,9n,93p,894b,1551s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on kadai5.dvi (7 pages, 97744 bytes).
+Output written on kadai5.dvi (6 pages, 97328 bytes).

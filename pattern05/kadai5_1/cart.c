@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define Dim 2
+#define Dim 3
 #define Clu 2
 
 
@@ -214,9 +214,9 @@ int main(int argc, char *argv[]){
 
   /* printf("Sorted Forest \n"); */
 
-  printf("feat_index \t clsss \t  threshold \t mini_gini\n");
+  printf("Feat_index\t Clsss\t Threshold\t Mini_gini\n");
   for(n = 0; n < Dim; n ++){
-    printf("%d \t  %d \t  %f \t %f\n",
+    printf("%d\t %d\t %f\t %f\n",
            forest[n].feat_index,
 	   forest[n].class,
            forest[n].threshold,
