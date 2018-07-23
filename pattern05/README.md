@@ -133,7 +133,7 @@ pandas
 `./plot.sh new_forest.dat(重みづき決定木の保存先)`
 
 によって、Adaboostでできた強識別器の識別領域が見える。
-![image](https://github.com/Secondtonumb/pattern_recogn/blob/master/pattern05/kadai5_2/Ada.png)
+![image](https://github.com/Secondtonumb/pattern_recogn/blob/master/pattern05/kadai5-report/Ada.png)
 
 なお、識別器重み修正プロセスがada.logに保存されている。
 
