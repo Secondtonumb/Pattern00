@@ -12,11 +12,11 @@
 
 `gcc -o rec rec.c`
 
-'gcc -o sampling sampling.c # 重み付きサンプリング'
+`gcc -o sampling sampling.c # 重み付きサンプリング`
 
-’gcc -o adaboost adaboost.c # Adaboost で識別器重み更新’
+`gcc -o adaboost adaboost.c # Adaboost で識別器重み更新`
 
-'gcc -o strong strong.c # 強識別器で未知パターンの認識'
+`gcc -o strong strong.c # 強識別器で未知パターンの認識`
 
 
 プログラム解説：
