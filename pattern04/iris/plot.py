@@ -19,12 +19,12 @@ clu = len(data[0, :]) // args.ptn_num
 # for x in xrange(len(data[0, :])):
 #     plt.plot(xrange(len(data[:, 0])), data[:, x], label="column%d" % (x))
 pics = args.ptn_num // 10
-for i in xrange(pics):
-    for x in xrange(10):
+for i in range(pics):
+    for x in range(10):
         plt.subplot(10 // 2, 2, x + 1)
-        for y in xrange(clu):
+        for y in range(clu):
             plt.title("pattern%d" %(i * 10 + x))
-            plt.plot(xrange(len(data[:, 0])), data[:, i * 10 * clu + x * clu + y], label="Clu %d" % (y))
+            plt.plot(range(len(data[:, 0])), data[:, i * 10 * clu + x * clu + y], label="Clu %d" % (y))
             plt.ylim(0, 1)
             plt.legend(fontsize=5)
     plt.tight_layout()
