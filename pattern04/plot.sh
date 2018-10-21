@@ -27,11 +27,11 @@ touch ${TRAIN_LOG}
 
 echo  "Step1: Compile"
 
-gcc -o nw nw.c
+gcc -o nw nw.c -lm
 
 echo "Training Module Complie Complete"
 
-gcc -o rec rec.c
+gcc -o rec rec.c -lm
 
 echo "Recognition Module Complie Complete"
 

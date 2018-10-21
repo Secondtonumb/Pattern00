@@ -26,7 +26,7 @@ cd ${ROOT}
 echo  "Step1: Compile"
 if [ ! -e nw ]
 then
-    gcc -o nw nw.c
+    gcc -o nw nw.c -lm
     echo "Training Module Complie Complete"
 else
     echo "Training Module Already exist"
@@ -34,7 +34,7 @@ fi
 
 if [ ! -e rec ]
 then
-    gcc -o rec rec.c
+    gcc -o rec rec.c -lm
     echo "Recognition Module Complie Complete"
 else
     echo "Recognition Module Already exist"
